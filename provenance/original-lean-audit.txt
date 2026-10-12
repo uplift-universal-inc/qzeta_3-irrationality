@@ -1,0 +1,14 @@
+== sorry placeholders in QZeta3/ ==
+QZeta3/Denominators.lean:39:  sorry
+QZeta3/Denominators.lean:46:  sorry
+QZeta3/Analytic.lean:65:  sorry
+QZeta3/Analytic.lean:70:  sorry
+QZeta3/Analytic.lean:77:  sorry
+QZeta3/Frozen/Prop41.lean:34:  sorry
+QZeta3/Frozen/Prop31.lean:33:  sorry
+QZeta3/Frozen/Prop31.lean:38:  sorry
+QZeta3/Nonvanishing.lean:80:  sorry
+== total: 9
+
+== axioms (QZeta3/Meta/AxiomsAudit.lean) ==
+scripts/audit.sh: line 18: lake: command not found

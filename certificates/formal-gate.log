@@ -1,0 +1,58 @@
+python3 scripts/formal_status.py --strict
+{
+  "kind": "static_source_inventory",
+  "production_scope": "lean/QZeta3/**/*.lean",
+  "placeholder_count": 9,
+  "custom_axiom_count": 0,
+  "findings": [
+    {
+      "path": "lean/QZeta3/Analytic.lean",
+      "line": 65,
+      "token": "sorry"
+    },
+    {
+      "path": "lean/QZeta3/Analytic.lean",
+      "line": 70,
+      "token": "sorry"
+    },
+    {
+      "path": "lean/QZeta3/Analytic.lean",
+      "line": 77,
+      "token": "sorry"
+    },
+    {
+      "path": "lean/QZeta3/Denominators.lean",
+      "line": 39,
+      "token": "sorry"
+    },
+    {
+      "path": "lean/QZeta3/Denominators.lean",
+      "line": 46,
+      "token": "sorry"
+    },
+    {
+      "path": "lean/QZeta3/Frozen/Prop31.lean",
+      "line": 33,
+      "token": "sorry"
+    },
+    {
+      "path": "lean/QZeta3/Frozen/Prop31.lean",
+      "line": 38,
+      "token": "sorry"
+    },
+    {
+      "path": "lean/QZeta3/Frozen/Prop41.lean",
+      "line": 34,
+      "token": "sorry"
+    },
+    {
+      "path": "lean/QZeta3/Nonvanishing.lean",
+      "line": 80,
+      "token": "sorry"
+    }
+  ],
+  "formal_completeness": "incomplete",
+  "kernel_build_replayed": false,
+  "note": "A source scan cannot certify theorem dependencies. Run the pinned Lean axiom audit after a successful build."
+}
+make: *** [Makefile:18: formal-proof] Error 1

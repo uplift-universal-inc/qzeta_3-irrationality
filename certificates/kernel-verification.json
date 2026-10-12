@@ -1,0 +1,409 @@
+{
+  "scope": "Irrationality of sum(n^2/(p^n-1), n>=1), every natural integer p>=2",
+  "verification": "passed",
+  "source_gate_exit": 0,
+  "formal_proof_exit": 0,
+  "audit_entrypoint_build_exit": 0,
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "lean_commit": "5045d0056413266e57c625dcd7c365b10e377c52",
+  "mathlib_revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "commands": [
+    "make formal-proof",
+    "cd lean && lake build QZeta3Audit",
+    "cd lean && lake env lean QZeta3/Meta/SecondProofAudit.lean"
+  ],
+  "audited_declaration_count": 49,
+  "axioms": {
+    "QZeta3.theorem11": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3Challenge.irrational_qzeta3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.analytic_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.content_coeff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.leading_coeff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.denominators_clear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.log_CK_sieve_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.frequently_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.irrational_of_poly_approx": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.tendsto_pow_mul_epsK": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.log_pow_mul_epsK_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.summable_term": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.hasSum_xi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.xi_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.g_inv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.S_eq_sum_g": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.bK_ge": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.natDegree_Delta_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.CK_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.margin_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.F_eval_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.PK_coeff_den": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.abs_aeval_PK_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.den_eq_one_of_coprime": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.log_CK_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.sum_cApp_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.sum_inv_le_one_add_log": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.cauchyF_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.theta_theta_inv_sub": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.Delta_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.eval_Delta_two_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.xi_eq_tsum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.log_CK_rational_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.sum_cApp_totient_rational_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.rational_cost_margin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.Generic.low_cyclotomic_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.Generic.high_Delta_scaled_coeff_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.gaussian_residue_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.gaussianBinomial_pascal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.geometricResidue_low": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.gaussian_residue_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.geometricResidue_reciprocal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.content_coeff_elementary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.elementary_cost_margin_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.log_CK_elementary_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.tendsto_pow_mul_epsK_elementary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.PK_coeff_den_elementary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.irrational_xi_elementary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "QZeta3.irrational_qzeta3_elementary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "production_placeholders": 0,
+  "custom_axioms": 0,
+  "challenge_template_exception": "lean/QZeta3Audit/Challenge.lean contains one independent statement placeholder; it is not imported by the solution or audit umbrella.",
+  "external_comparator_run": false,
+  "formal_growth_cost": "107/192",
+  "positive_margin": "31/576",
+  "sharper_pi_growth_formalized": false,
+  "runtime_note": "The hosted environment uses a process-path compatibility shim redirecting only /proc/<own-pid>/exe to /proc/self/exe. Lean kernel and proof checking are unchanged; standard installations require no shim.",
+  "source_sha256": {
+    ".github/workflows/formal-completeness.yml": "31e740295e1bfc0719e6eb4150880ab73ac1bc528ae466888428906a4e7ffc68",
+    "Makefile": "58be93bacabf7dc1155526a1fc242a780c14b986ad6e4426f2619c450920615a",
+    "lean/QZeta3.lean": "4e1182c914170ae33d66c0d99013c7a3de1f2bfa1eabd14853d2ff524f17a241",
+    "lean/QZeta3/Analytic.lean": "9b6af3a8011f077f89aedae8c66d6e7d6f75b74f21c697a25a92ffe0d6dc0837",
+    "lean/QZeta3/AnalyticDeterminant.lean": "1ea0c986ede275c93afad8c93a8e179139aeab9722653c0e0407d4d5293e27f9",
+    "lean/QZeta3/AnalyticEntry.lean": "46cb8bac6732309a02ae078a644e2f050484afdf574cda423ca4f8af7adff9f0",
+    "lean/QZeta3/AnalyticWeight.lean": "ead9af6323e835236849f36d87cce8a91f603a2468aed10838ab73123b6a8248",
+    "lean/QZeta3/Asymptotics.lean": "c3ea9a86cc25c025d0a7954929d3ae6e5137c22ca5f56cb0d2759e934b9ab9d7",
+    "lean/QZeta3/CauchyAtInfinity.lean": "79922934a8270b2b6707b57102796a93a1fc4d47dc004011e60ee230f3df1c75",
+    "lean/QZeta3/CauchyDomain.lean": "d84e6b72034423e3a18a14a0e7ec567c84a60fe5d493ebb4df23dfc6d079bc98",
+    "lean/QZeta3/CauchyExterior.lean": "de18a1c5923100602bcc114dd746b03a094c0b56f2c92f77a0192eba57cfe2ee",
+    "lean/QZeta3/CauchyFunctional.lean": "71fdb1a331fd9042462a36b61d4e4c58a4027b724e2912ab12ad51ae0612bba8",
+    "lean/QZeta3/CauchyInterpolation.lean": "a2387428675ef3b4bc779011f873e6a0c5b58e9a181f2964eb1ac2b9f2f47c5b",
+    "lean/QZeta3/CauchyMeromorphic.lean": "93927a044f83ce2473b4aa50b48842bae433ae3864c4d18bb6ec57913b9b5d4f",
+    "lean/QZeta3/CauchyNonrational.lean": "4913dccb2b44a366516bd4693702e3a89652b34b70ff61b919f6399cf6bc202a",
+    "lean/QZeta3/CauchyPole.lean": "388b48d69dc51cd9758e06257b0fb7f34f8e1236c7085b0922c211da3502aa7d",
+    "lean/QZeta3/ClusterBasis.lean": "0018842ff3991c1c7cbd285761fb03ceacac1e108bbb7b0ada269a0a74875ce6",
+    "lean/QZeta3/ClusterCounts.lean": "6943e0adfe2f8353824a453483720c878d5b43d90aebd28a8e83b078811f98aa",
+    "lean/QZeta3/Consistency/Series.lean": "67283e118bac080a0cc5d390240c038b1c31680beb5f1bfc51ddb79237a2d255",
+    "lean/QZeta3/Content.lean": "96f9daf25e50d185eb122b02f72e3660dd877dbffae74ce94dcb38162dad6c54",
+    "lean/QZeta3/ContentProof.lean": "ba283e6e24fb065ad356ca9f27156647bc075497e778c06f154db7b4e672ac5b",
+    "lean/QZeta3/ContentTruncation.lean": "68824b35fa5dbb71110323d32f0c430562f820cb9158bdd9c3cb94be427f75d3",
+    "lean/QZeta3/Criterion.lean": "0d1038a00ffad0c06a9765cd8638d968ec7f63bc3324d11b4a9e474c75b5e320",
+    "lean/QZeta3/CyclotomicBounds.lean": "d10dcf3d6893d96a50ea7fa766252531a14657e77e40129c3ad81907d4b36728",
+    "lean/QZeta3/CyclotomicLocal.lean": "1506aca5a73a7aaf7547f9941c1741be6348c2d4b3706b42796cb20b601ef7e3",
+    "lean/QZeta3/CyclotomicPoleBounds.lean": "d9b934a19f3d8b928a93376d214282ddcd0d56bfb61619786339f23ded033628",
+    "lean/QZeta3/Defs.lean": "5b9e5e90e4d1756efe2f563f8378e262a819d6498bde7a0e4d4ae58a26a2870a",
+    "lean/QZeta3/DenominatorDescent.lean": "d285baf81b80687eb4a8cec2b5d9dd2b68d3d799666a264fe73e08a776a7f61c",
+    "lean/QZeta3/DenominatorSieve.lean": "657003df3a8c55dfeffd3470c1ec22f92ec5a87459d1cb549e8cc51ff6ab74be",
+    "lean/QZeta3/Denominators.lean": "eaed23e19263dde9dd42f6b1b44fffd39b8e68926931a055074929bae2239779",
+    "lean/QZeta3/DividedDifferences.lean": "951b489fab85b2a43de3e76f3349d8200022b275ac110ffe64dd1a87767f480d",
+    "lean/QZeta3/Elementary.lean": "041aed804d109cfa68f2831ef788f340d6ffafa34ef66a2bcd7e033f3d629013",
+    "lean/QZeta3/ElementaryContent.lean": "b13fd0b990b3270521302738f4f74b9d029e6fcefcefcafb8c8bf8edad23b488",
+    "lean/QZeta3/ElementarySecondProof.lean": "e2c2e67d980e38d1442c00ab67a335fc2d61505c21661bb2e8e8114ffa93238e",
+    "lean/QZeta3/Frozen/Prop21.lean": "4bdb5f690c8094b927ed52799884cd9c94b95cf1ed2ce8782a586276d5cd7f12",
+    "lean/QZeta3/Frozen/Prop31.lean": "c18b577f7bed3a2e64a835e094364440ff408fd69e53e0bfa2e2eb60363b3277",
+    "lean/QZeta3/Frozen/Prop41.lean": "fb5f8f65161d9971feff2237770fd3b2083bead2ba8f6c3a214b025d113b936b",
+    "lean/QZeta3/Frozen/Prop51.lean": "822acb2e1dac3aa3fd30620e20d16c22c918687106727d91d435ee19f46d5de6",
+    "lean/QZeta3/Frozen/Theorem11.lean": "0871655d2334edc3bae1305a80acb0c4b54aff35a847431783566e6ab246601e",
+    "lean/QZeta3/Functional.lean": "9f26f51a46387906d5e1b9b1b274d4b7811c02c7d220742cfbe15c67e49c4672",
+    "lean/QZeta3/GaussianIdentity.lean": "a35c410ea020b6e496609c71a52cff512b55606d8bc32dc4b0e122d11f0bae33",
+    "lean/QZeta3/GenericEvaluation.lean": "b6f82fc3b002f09d35238fbe9089b2d469fd60237aaba2d713390ca1f44578f2",
+    "lean/QZeta3/GenericGram.lean": "1f8b49d8b7bc1a6e1654d6d0769e8fe96b2b0c9c3867b6785cb9d1a4dd9f7134",
+    "lean/QZeta3/GenericMoments.lean": "0f4985a047dcfdee48295be89f8f3a2e5a9872ce25091ee17d16b03c5e16579b",
+    "lean/QZeta3/GenericSpecialization.lean": "635838e1305ff76ae2a1536decbc35b4b5f42c811d07459282f39f66bca36c85",
+    "lean/QZeta3/GeometricTail.lean": "a9798ac786d5411cc71293f8a82f314acabba0da29fc58b0d57b8876cddba823",
+    "lean/QZeta3/GramBasis.lean": "45160a7abf547cde0b3e3c264d3ab7ae8b9f12dbf10d7802a29fb5644cd8501d",
+    "lean/QZeta3/GramIdentity.lean": "0d2d4f80963c5953ae11ac1e5be698e00ec4277476949da0f39d46fd0005c645",
+    "lean/QZeta3/HighClusterBasis.lean": "f8d5110eab5efd24fd400ce4520c1ddf60e0a9dad7ef19c39d6b4393f5114b09",
+    "lean/QZeta3/HighOrderDeterminant.lean": "a0d92d9b81a2fe600701a7d78c15d0d68f2122a6aeec0d84a50103aed4cd8499",
+    "lean/QZeta3/HighOrderLocal.lean": "502c3325d77f31e38717de946d1b264e51b5c795939041efd0e593e8cad2f132",
+    "lean/QZeta3/HighProperEntries.lean": "fc35eaa80e2a8bef0e1057a3d1d343e82902a569ab095b7e7a7711d51328e558",
+    "lean/QZeta3/Imports.lean": "3b4ebaacbc8d571b53f94c0253beebcadf91d927e7eb94687cdb9a5ec69447fb",
+    "lean/QZeta3/IntegerFractions.lean": "e72c976eba33ddbc58e480850c1976adae5c2e5f1a6f24b332fa9eb5753082d6",
+    "lean/QZeta3/Leading.lean": "46b9beb6061c3959cd1162dcdf6239a63fbba1c76fcecd56bcb6d0b90db1e1cf",
+    "lean/QZeta3/LocalClusterTransport.lean": "ea2aaa3ee4df4ab1dfa09615abb343a43edbc36edd23070f68ef88016273b38f",
+    "lean/QZeta3/LocalDeterminants.lean": "1daaa8cad405dd1d4c7ca1ff19620f90a0b24132c0cfdddd806525f1f202528a",
+    "lean/QZeta3/LocalEvaluation.lean": "fe83901b23e996090d9f804078ee39ef25a801d1e6c85e83e712c5d80f8eca6f",
+    "lean/QZeta3/LocalGramBounds.lean": "db7cc8dfd0eca9c0bf39a68caaaebd8935869613c3cf73e37ad6f8f45900bf53",
+    "lean/QZeta3/LocalPoleDescent.lean": "6a7a7bd8c7299d0227f9d27f0411dcbb2d3fd93e3d9d75f35b1a4abca04661d7",
+    "lean/QZeta3/LowClusterEntries.lean": "e9a2426228648b9a221b009058e1ec74e2ddfe9be80f16bc6d564aee5915b268",
+    "lean/QZeta3/LowCyclotomicBound.lean": "e1047fd3d7ed65b75a30d006a5e9166eb704658d46aa62e3ba70e8a0551ab5df",
+    "lean/QZeta3/Main.lean": "d583e4425851695a20030a00f5c4c3bd8195b2d4669f59b774d0bfc5e6bca585",
+    "lean/QZeta3/Meta/AxiomsAudit.lean": "9b811bbbc06d3f0abdfa314980f155e02699fd3d69e8d816bf9d7416b678965f",
+    "lean/QZeta3/Meta/SecondProofAudit.lean": "4808a9bd82026dd08b9cf424273bbb07f3f2e5eb253017ae3eb21d0c1edd4309",
+    "lean/QZeta3/MomentDecay.lean": "f704cbe91c8e61800d56766dcf398402ea3088e94b0da6c59714d284a3ef3afc",
+    "lean/QZeta3/MovingClusterBasis.lean": "0afd1d530e120b85d3db6d90b0d4962dff719310c3bc8aa7db8a4d03dcc7ab7a",
+    "lean/QZeta3/MovingProper.lean": "e703dd4de948c517927b10a859fd0243d365379be4be48ac30891ee901d93d71",
+    "lean/QZeta3/Nonvanishing.lean": "744f3538d1d10ac6c8f39a272c69deac83b86c214796c74d4224fd572256df01",
+    "lean/QZeta3/NonvanishingAlgebra.lean": "aa221642674d08966b9e9202f50e5647a6c1cb84edbc80e210d459a510663010",
+    "lean/QZeta3/NonvanishingAnalytic.lean": "5522574bf1158b5ada1f01f23b1ab770ea03881cfeb73532d460988014abf2dc",
+    "lean/QZeta3/PolynomialMomentRank.lean": "571021fa3a007a1b27fae8fd1c603b15f96e587615eb9f7490dcff0201df6e2c",
+    "lean/QZeta3/Purity.lean": "a6d36555150fdd937744c6c8d3188c358731df170d268d09f4d6ab5e3f52efa7",
+    "lean/QZeta3/ResidueDenominators.lean": "5743868a65ac9c7fb20bf00e127b5bbab296393ccbc9fc6b14cffadd9c30cad5",
+    "lean/QZeta3/TotientSieve.lean": "5c58749460afbf9929a05340a8e8d29cd98689b11e6c66d0d5f21cf4ac08c60a",
+    "lean/QZeta3/WeightedMoments.lean": "6e295fe66655e1eea63a842788d431da88a0bf4701a8136cfceeeb96cfe78df0",
+    "lean/QZeta3Audit.lean": "3c7c70f631cbe1be77c9aa07173ccd818baf0f32f472bc39002aca56ac46b00c",
+    "lean/QZeta3Audit/Challenge.lean": "988d6801ef92cf39b438faad049e3fac2abaa7eb8e228bc3e0e5fa11a6428789",
+    "lean/QZeta3Audit/Solution.lean": "279dd9f1f329b0ca2183cf79cf07ff68243423a3753b00857006244597e51496",
+    "lean/lake-manifest.json": "d5e07f31123955f0a077618fb112b2c79c687d671cc58412ff4f1c0ac22da17c",
+    "lean/lakefile.toml": "017f22acf60b53cb8a6bc49af6908e9d16d0feaec9c7fcb32d3d1a627cd234ff",
+    "lean/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "lean/scripts/audit.sh": "5459f84f9cf0f37b402bab5fd4b4b0ba154dad2a0837bfb76954ad4ad3786424",
+    "scripts/check_axioms.py": "9cfe6eceec1fbe09bdd0f0cae22f249fc2a5a83344d41f75d3116f93a2118e3d",
+    "scripts/formal_status.py": "e7706d6ef2a95c38b09e7b41c2dff8b39bfd3226ecbff1a1766fe6bc9fdb3fa9"
+  },
+  "record_sha256": {
+    "certificates/audit-entrypoint-build.log": "6c0f10eec213ae7396db9148dfe4825e5bc2630b8faad37037cc517872124cc2",
+    "certificates/formal-proof-run.log": "7ac795a686825a3abd9838053fa827bc722c834749d7d9ccf67b738830979e4b",
+    "certificates/kernel-axioms.log": "42f59b1f6cedba604667fc41ae935fa40a11989c3c9d2129007a82ebd76d52db",
+    "certificates/second-proof-dependencies.log": "4c7fef80dbd3d9e00b491080894b186fae2338b2c540d82fda697fc2506330a8"
+  },
+  "verified_date": "2026-10-12",
+  "proof_routes": {
+    "original": {
+      "explicit_series_theorem": "QZeta3Challenge.irrational_qzeta3",
+      "coefficient_content": "QZeta3.content_coeff_proved",
+      "formal_growth_cost": "107/192",
+      "positive_margin": "31/576"
+    },
+    "elementary": {
+      "explicit_series_theorem": "QZeta3.irrational_qzeta3_elementary",
+      "coefficient_content": "QZeta3.content_coeff_elementary",
+      "residue_identity": "QZeta3.gaussian_residue_identity",
+      "formal_growth_cost": "9/16",
+      "positive_margin": "7/144",
+      "relationship": "Alternate Gaussian coefficient-content derivation and direct criterion assembly; shares determinants, real estimate, local cyclotomic clearing, nonvanishing, supporting finite-tail algebra, and the stronger 107/192 sieve estimate."
+    }
+  },
+  "second_proof_dependency_audit": {
+    "passed": true,
+    "traversed_project_declarations": 1008,
+    "required_declarations": [
+      "QZeta3.content_coeff_elementary",
+      "QZeta3.gaussian_residue_identity",
+      "QZeta3.gaussian_residue_integral",
+      "QZeta3.log_CK_elementary_le",
+      "QZeta3.irrational_of_poly_approx"
+    ],
+    "forbidden_declarations": [
+      "QZeta3.theorem11",
+      "QZeta3.irrational_xi",
+      "QZeta3Challenge.irrational_qzeta3",
+      "QZeta3.PK_coeff_den",
+      "QZeta3.content_coeff",
+      "QZeta3.content_coeff_proved",
+      "QZeta3.contentMatrix_coeff_integral",
+      "QZeta3.mConst_sub_translation_mem",
+      "QZeta3.localTrunc_residue_mem",
+      "QZeta3.mLin_mem_baseIntegral",
+      "QZeta3.residue_sum_mem_baseIntegral"
+    ],
+    "positive_controls": [
+      "QZeta3.theorem11 reaches QZeta3.irrational_xi and QZeta3.content_coeff_proved",
+      "QZeta3Challenge.irrational_qzeta3 reaches QZeta3.theorem11"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "challenge_module": "QZeta3Audit.Challenge",
+  "solution_module": "QZeta3Audit.Solution",
+  "theorem_names": ["QZeta3Challenge.irrational_qzeta3"],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"],
+  "enable_nanoda": true
+}

@@ -1,0 +1,21 @@
+{
+  "s": 3,
+  "p": 2,
+  "K": 60,
+  "degree": 60,
+  "primitive": true,
+  "original_normalization_correct": true,
+  "nonzero_certified": true,
+  "sign": -1,
+  "precision_bits": 266276,
+  "series_terms": 266468,
+  "tail_bound": "[2.60651588549028885e-80199 +/- 3.15e-80217]",
+  "zeta_enclosure": "[7.09928517889090711403313 +/- 4.98e-24]",
+  "value_enclosure": "[-4.34518351412299664323688e-8968 +/- 4.45e-8992]",
+  "logabs": -20648.114045977076,
+  "logabs_per_K3": -0.0955931205832272,
+  "log_den_per_K3": 0.33342757857159583,
+  "log_content_per_K3": 0.3464773198382282,
+  "content_v2": 107970,
+  "seconds": 15.682819366455078
+}

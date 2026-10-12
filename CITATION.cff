@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Research draft published under the pen name uplift-universal-inc; see docs/ATTRIBUTION.md for contribution records and AI disclosure."
+title: "Irrationality of the Lambert-series value zeta_{1/p}(3)"
+type: software
+authors:
+  - name: "uplift-universal-inc"
+version: "0.3.0-two-proofs"
+date-released: "2026-10-12"
+abstract: "Written determinant proof and elementary Gaussian-binomial variant, with complete Lean/Mathlib formalizations for reciprocal integer bases p>=2 and reproducible verification records; companion results are separately inventoried."

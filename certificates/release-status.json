@@ -1,0 +1,89 @@
+{
+  "version": "0.3.0-two-proofs",
+  "prepared_date": "2026-10-12",
+  "scope": "Irrationality of sum(n^2/(p^n-1), n>=1), integer p>=2",
+  "written_proof": "Complete determinant proof and elementary Gaussian-binomial variant, with bounded internal reviews; external acceptance not established",
+  "python": "3.12.14",
+  "python_flint": "0.9.0",
+  "finite_checks": {
+    "make_check": "passed",
+    "normalization_determinants": 88,
+    "arithmetic_determinants": 100,
+    "cluster_checks": 62500,
+    "rank_denominator_cases": 40,
+    "cluster_exponents_through_K": 400,
+    "explicit_coefficient_examples": 18,
+    "arb_p": 2,
+    "arb_K": 60,
+    "arb_excludes_zero": true
+  },
+  "formal": {
+    "main_library_placeholders": 0,
+    "custom_axioms": 0,
+    "source_gate_exit": 0,
+    "make_formal_proof_exit": 0,
+    "kernel_build": "passed: Lean 4.34.1 and pinned Mathlib v4.34.1",
+    "complete_formal_proof": true,
+    "audited_declarations": 49,
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "explicit_series_theorem": "QZeta3Challenge.irrational_qzeta3",
+    "sufficient_cubic_cost": "107/192",
+    "positive_margin": "31/576",
+    "sharp_pi_growth_formalized": false,
+    "external_comparator_run": false,
+    "records": [
+      "certificates/formal-proof-run.log",
+      "certificates/kernel-axioms.log",
+      "certificates/kernel-verification.json",
+      "certificates/second-proof-dependencies.log"
+    ],
+    "explicit_series_theorems": [
+      "QZeta3Challenge.irrational_qzeta3",
+      "QZeta3.irrational_qzeta3_elementary"
+    ],
+    "elementary_second_proof": {
+      "kernel_verified": true,
+      "dependency_audit_passed": true,
+      "sufficient_cubic_cost": "9/16",
+      "positive_margin": "7/144",
+      "relationship": "Alternative Gaussian coefficient-content derivation with shared determinant, analytic, local cyclotomic, finite-sieve, and nonvanishing arguments"
+    }
+  },
+  "document": {
+    "pages": 21,
+    "all_pages_visually_inspected": true,
+    "tex_sha256": "427b36a6ebe200bb86809c928bfba110f14fab2bc2d7e66d44d3300603e6eec4",
+    "pdf_sha256": "bfd2f66927a6d6906b6a240fd6e18be1d35a1b54077d319cb260973f6b23227c",
+    "formal_status_updated": true,
+    "updated_pages_visually_inspected": [
+      1,
+      15
+    ],
+    "pdf_author": "uplift-universal-inc"
+  },
+  "github": {
+    "target": "uplift-universal-inc/qzeta3-irrationality",
+    "remote_created": true,
+    "remote_pushed": true,
+    "visibility": "public",
+    "write_access_confirmed": true,
+    "app_installation_confirmed": true,
+    "publication_method": "Connected GitHub API; prepared file snapshot",
+    "public_publication_approved": true,
+    "blocker": null,
+    "formal_completion_branch": "lean/complete-reciprocal-qzeta3",
+    "formal_completion_publication": "review branch; see docs/PUBLISHING.md",
+    "elementary_second_proof_publication": "same review branch and pull request as formal completion; see docs/PUBLISHING.md",
+    "alias_commit_publication": {
+      "author_name": "uplift-universal-inc",
+      "status": "prepared locally; authenticated Git push required",
+      "blocker": "The connected GitHub commit tool exposes no author override, and command-line Git has no authenticated GitHub connection."
+    }
+  },
+  "novelty": "Target-specific estimates described; priority not established",
+  "public_byline": "uplift-universal-inc"
+}

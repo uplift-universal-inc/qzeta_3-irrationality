@@ -1,0 +1,866 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1.05in]{geometry}
+\usepackage{microtype}
+\setlength{\emergencystretch}{1em}
+\usepackage{xcolor}
+\definecolor{paperlink}{RGB}{0,0,114}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linktoc=all,linkcolor=paperlink,citecolor=paperlink,urlcolor=paperlink,
+pdftitle={Irrationality of the Lambert-series value zeta(1/p,3)},pdfauthor={uplift-universal-inc}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Irrationality of $\zeta_{1/p}(3)$}
+\fancyhead[R]{\small\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\parindent}{1.25em}
+\setlength{\parskip}{0pt}
+\numberwithin{equation}{section}
+\setcounter{tocdepth}{1}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Lcal}{\mathcal L}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\gaussbinom}[3]{\genfrac{[}{]}{0pt}{}{#1}{#2}_{#3}}
+\title{Irrationality of the Lambert-series value $\zeta_{1/p}(3)$}
+\author{uplift-universal-inc}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give a determinantal proof that $\sum_{n\ge1}n^2/(p^n-1)$ is irrational for every integer $p\ge2$. A second Euler derivative on a geometric lattice gives rational polynomial moments and simple-pole moments involving only the target value. The resulting Hankel determinants are polynomials of growing degree. The contribution is the simultaneous control of their real size, their full coefficient content at primes dividing the base, and their cyclotomic denominators, together with a nonvanishing argument for the moving denominators. A triple-root basis gives cubic real decay; a local series translation extracts the factor $p^{K(K^2-1)/2}$; and root-of-unity cluster bases bound the remaining denominator cost. The refined cost is $321/(64\pi^2)$, below the available $11/18$. Rational interpolation supplies infinitely many nonzero values without a positivity assumption. These estimates give integer polynomials of degree $K$ whose nonzero values at the target are bounded in absolute value by $\exp(-c_pK^3+O_p(K^2\log K))$. We also give a second, elementary presentation: a finite Gaussian-binomial calculation proves the same coefficient-content bound, and a six-periodic sieve replaces the totient asymptotics. It yields the sufficient denominator cost $9/16$ and the positive margin $7/144$. The two presentations share the determinant, real estimate, local cyclotomic bounds, and nonvanishing argument. The general determinantal method has earlier precedents; the target-specific estimates are the substance of these proofs.
+\end{abstract}
+\begin{center}\small
+Research draft, 12 October 2026. Main theorem verified in Lean~4.34.1 with Mathlib.\\ The formal proof's scope and growth estimate are described in the verification disclosure.
+\end{center}
+\tableofcontents
+\clearpage
+\section{Introduction and construction}
+
+For $0<q<1$, we use the convention
+\begin{equation}\label{eq:qzeta}
+ \zeta_q(3)=\sum_{n=1}^{\infty}\frac{n^2q^n}{1-q^n}.
+\end{equation}
+The normalization matters: several inequivalent functions are called $q$-zeta functions. In this manuscript $q=1/p$, where $p$ is an integer at least $2$, and $\xi_p=\zeta_{1/p}(3)$.
+
+\begin{theorem}[Main theorem]\label{thm:main}
+For every integer $p\ge2$, the real number
+\begin{equation*}
+ \xi_p=\sum_{n=1}^{\infty}\frac{n^2}{p^n-1}
+\end{equation*}
+is irrational.
+\end{theorem}
+
+\subsection{Historical context and attribution}
+
+Ap\'ery's 1978 proof of the irrationality of $\zeta(3)$, published in 1979, made the construction of small arithmetic approximations to special values a central example in Diophantine approximation~\cite{Apery}. Beukers gave an integral proof in the same year~\cite{Beukers}. In those arguments, arithmetic control is as essential as analytic smallness: multiplying by the denominators must leave an error tending to zero.
+
+The Lambert-series convention in~\eqref{eq:qzeta} belongs to a particular $q$-analogue of this problem. Krattenthaler, Rivoal and Zudilin studied $\zeta_q(s)=\sum_{n\ge1}n^{s-1}q^n/(1-q^n)$ using basic hypergeometric series~\cite{KRZ}. Their 2006 paper proves growing lower bounds for the dimension spanned by the odd values at reciprocal integers. Jouhet and Mosaki improved the finite consequence to the irrationality of at least one of $\zeta_q(3),\zeta_q(5),\zeta_q(7),\zeta_q(9)$~\cite[Theorem 1.3]{JM}. Their introduction explicitly distinguishes this collective result from the individual weight-three question. Theorem~\ref{thm:main} concerns that individual value, for positive reciprocal integers. A search of these sources and subsequent work is not by itself a certification of priority.
+
+The even $q$-values have a different history. Their relation to Eisenstein series connects them to Nesterenko's transcendence theorem~\cite{Nesterenko}; the consequences are described in~\cite[Introduction]{KRZ,JM}. Thus even-weight irrationality is not a new consequence to claim for the present method. More recent accelerated series for the weight-three value include Tauraso's $q$-analogue of the Koecher--Leshchiner identity~\cite{Tauraso}. An identity of this kind and a sufficient arithmetic approximation estimate are distinct inputs.
+
+Hankel determinants also have a substantial prior role. Pr\'evost's work relates Pad\'e approximation, moment determinants, and classical zeta values~\cite{Prevost1996,Prevost2019}; Pr\'evost and Rivoal develop the corresponding remainder approximants~\cite{PR2021}. Zudilin's determinantal irrationality criterion explains how polynomial expressions in a target can improve on individual linear forms~\cite{Zudilin2017}. Particularly close in scale is his 2016 treatment of the generalized $q$-logarithm: its Hankel polynomials have cubic exponential decay~\cite[Section 4, equation (8)]{Zudilin2016}. Neither growing polynomial degree nor cubic decay is asserted as new here.
+
+The immediate motivation for this construction was the rational modification of moment determinants in Fauzan's 2026 preprint on $\zeta(5)$~\cite{Fauzan}. The historical discussion by Persiflage connects that construction to Pr\'evost, Zudilin, Uvarov and Krattenthaler~\cite{Persiflage}. We cite that discussion as the account that motivated the comparison, not as a substitute for their mathematical results. Rational modification of orthogonal-polynomial measures was studied by Uvarov~\cite{Uvarov}, and Krattenthaler's determinant identity gives a general formulation~\cite{Krattenthaler2021}. The functional below is a differential functional on a discrete geometric lattice; it is not a positive moment measure. Its nonvanishing must therefore be established separately.
+
+\subsection{The mechanism of the proof}
+
+The moving denominator serves both the real and the arithmetic estimates. Simple poles give tails of the target series, so every matrix entry involves only one unknown number. Triple zeros at early lattice points suppress the real determinant. At primes dividing $p$, a convergent local translation controls the full determinant, including its polynomial quotient. At roots of unity, a cluster basis controls pole collisions; a low-rank correction retains the singular polynomial moments. Finally, rational interpolation prevents eventual vanishing. The contribution claimed here is this combination of explicit estimates for the stated weight-three functional. All four arguments are supplied below. Appendix~\ref{app:elementary} gives an alternative arithmetic proof using a finite Gaussian-binomial identity and replaces the asymptotic totient estimates by a two-prime sieve. This is a second proof of the same theorem through the same determinant construction, rather than a determinant-free method.
+
+\subsection{The differential functional}
+
+Write $\theta=x\,d/dx$. For a function analytic on a neighborhood of $[0,q]$, define
+\begin{equation}\label{eq:functional}
+ \Lcal(f)=\sum_{m=1}^{\infty}(\theta^2f)(q^m).
+\end{equation}
+This is well-defined: analyticity at $0$ implies $\theta^2f(x)=O(x)$ there, and the evaluation points form a geometric sequence. For $K\ge1$ let
+\begin{equation}\label{eq:denom}
+ D_K(x)=\prod_{a=1}^K(1-p^{-a}x),\qquad W_K(x)=D_K(x)^{-1}.
+\end{equation}
+All rational functions used below have poles outside $[0,q]$.
+
+The elementary moments are
+\begin{equation}\label{eq:poly-moments}
+ \Lcal(1)=0,\qquad
+ \Lcal(x^j)=\mu_j:=\frac{j^2}{p^j-1}\quad(j\ge1).
+\end{equation}
+Define
+\begin{equation}\label{eq:Sa}
+ S_a=\sum_{b=1}^a\frac{p^b(p^b+1)}{(p^b-1)^3}.
+\end{equation}
+
+\begin{lemma}[Pure simple-pole moments]\label{lem:purity}
+For every $a\ge1$,
+\begin{equation*}
+ \Lcal\bigl((1-p^{-a}x)^{-1}\bigr)=\xi_p-S_a.
+\end{equation*}
+\end{lemma}
+\begin{proof}
+The power-series identity
+\begin{equation*}
+ \sum_{n\ge1}n^2y^n=\frac{y(1+y)}{(1-y)^3}\qquad(|y|<1)
+\end{equation*}
+and absolute convergence give
+\begin{align*}
+ \Lcal\bigl((1-q^a x)^{-1}\bigr)
+ &=\sum_{m\ge1}\sum_{n\ge1}n^2q^{n(a+m)}\\
+ &=\sum_{n\ge1}\frac{n^2q^n}{1-q^n}
+   -\sum_{b=1}^a\sum_{n\ge1}n^2q^{bn}
+ =\xi_p-S_a.
+\end{align*}
+The polynomial-moment formula follows by the same geometric summation.
+\end{proof}
+
+For an indeterminate $X$, define $\Lcal_X$ on polynomials and rational functions with simple poles among $p,p^2,\ldots$ by
+\begin{equation}\label{eq:formal-functional}
+ \Lcal_X(1)=0,\quad \Lcal_X(x^j)=\mu_j\ (j\ge1),\quad
+ \Lcal_X((1-p^{-a}x)^{-1})=X-S_a,
+\end{equation}
+extending linearly through the unique polynomial-plus-simple-pole decomposition. Put
+\begin{equation}\label{eq:Delta}
+ \Delta_K(X)=\det\left[
+ \Lcal_X\left(\frac{x^{i+j}}{D_K(x)}\right)
+ \right]_{0\le i,j<K}\in\Q[X].
+\end{equation}
+Each entry is affine in $X$, so $\deg\Delta_K\le K$. Lemma~\ref{lem:purity} shows that evaluation at $X=\xi_p$ recovers the actual real Gram determinant of~\eqref{eq:functional}.
+
+Let
+\begin{equation}\label{eq:Edef}
+ A_K=\frac{K(K+1)}2,\qquad
+ e_K=\frac{K(K^2-1)}2=A_K(K-1).
+\end{equation}
+The proof constructs integers $C_K>0$, coprime to $p$, for which
+\begin{equation*}
+ P_K(X):=C_Kp^{-e_K}\Delta_K(X)\in\Z[X],
+\end{equation*}
+and establishes
+\begin{equation}\label{eq:overview-bound}
+ |P_K(\xi_p)|\le
+ \exp\left\{-\left(\frac{11}{18}-\frac{385}{64\pi^2}\right)
+ (\log p)K^3+O_p(K^2\log K)\right\}.
+\end{equation}
+Infinitely many values $P_K(\xi_p)$ will be nonzero. If $\xi_p=a/b$ is rational, $b^KP_K(a/b)$ is then a nonzero integer for infinitely many $K$, contradicting~\eqref{eq:overview-bound}.
+
+\section{An all-size real determinant bound}
+
+\begin{proposition}\label{prop:analytic}
+For $q=1/p\le1/2$ and $K\ge1$,
+\begin{equation}\label{eq:analytic-exact}
+ |\Delta_K(\xi_p)|\le
+ \bigl[12(2K-1)^2\sqrt K\bigr]^Kq^{b_K},
+ \qquad
+ b_K=\frac{K^3+3K^2-c_{K\bmod3}}9,
+\end{equation}
+where $(c_0,c_1,c_2)=(0,4,2)$. In particular,
+\begin{equation*}
+ \log|\Delta_K(\xi_p)|\le-\frac{\log p}{9}K^3+O_p(K^2),
+\end{equation*}
+with the logarithmic inequality understood in the extended sense when the determinant vanishes.
+\end{proposition}
+
+\begin{proof}
+Introduce monic polynomials
+\begin{equation*}
+ B_j(x)=\prod_{t=1}^j(x-q^{\lceil t/3\rceil}),\quad B_0=1,
+ \quad R_j=\lceil j/3\rceil,\quad
+ a_j=\sum_{t=1}^j\lceil t/3\rceil.
+\end{equation*}
+Replacing $1,x,\ldots,x^{K-1}$ by $B_0,\ldots,B_{K-1}$ is a triangular basis change with determinant one. The Gram determinant is unchanged.
+
+If $m<R_j$, the polynomial $B_j$ has a root of multiplicity three at $q^m$. Hence $(\theta^uB_j)(q^m)=0$ for $0\le u\le2$. If $m\ge R_j$, write $x=q^m$. Every root $\rho$ of $B_j$ satisfies $x\le\rho$, so $|x-\rho|\le\rho$. Moreover, $\theta^u(x-\rho)=x$ for $u\ge1$. Applying the product rule once or twice therefore gives
+\begin{equation}\label{eq:jet-bounds}
+ |B_j(x)|\le q^{a_j},\qquad
+ |\theta^uB_j(x)|\le j^uq^{a_j}\frac{x}{q^{R_j}}\quad(u=1,2).
+\end{equation}
+For completeness, there are $j^u$ labeled choices of factors under $u$ successive differentiations. Each differentiated factor replaces a bound $\rho$ by $x$; all ratios $x/\rho$ are at most one, and at least one is at most $x/q^{R_j}$. For $j=0$ the positive derivatives vanish.
+
+We next bound $W_K$ and its two derivatives uniformly in $K$. For $0\le x\le q\le1/2$, define
+\begin{equation*}
+ \alpha(x)=\theta\log W_K(x)
+   =\sum_{a=1}^K\frac{q^ax}{1-q^ax},\qquad
+ \beta(x)=\theta^2\log W_K(x)
+   =\sum_{a=1}^K\frac{q^ax}{(1-q^ax)^2}.
+\end{equation*}
+Since $1-q^ax\ge3/4$ and $\sum_{a\ge1}q^a\le1$,
+\begin{equation*}
+ \log W_K(x)\le\alpha(x)\le\tfrac43x\le\tfrac23,
+ \qquad \beta(x)\le\tfrac{16}{9}x.
+\end{equation*}
+Using $\theta W_K=W_K\alpha$, $\theta^2W_K=W_K(\alpha^2+\beta)$, and $x^2\le x/2$, we obtain
+\begin{equation}\label{eq:weight-bounds}
+ |W_K|\le e^{2/3},\qquad
+ |\theta W_K|\le\tfrac43e^{2/3}x,\qquad
+ |\theta^2W_K|\le\tfrac83e^{2/3}x.
+\end{equation}
+
+Fix $i,j<K$ and put $R=\max(R_i,R_j)$. The product $\theta^2(B_iB_jW_K)$ vanishes at every $q^m$ with $m<R$. At a surviving node, put $h=i+j$. Equations~\eqref{eq:jet-bounds}--\eqref{eq:weight-bounds} and the product rule imply
+\begin{align*}
+ |\theta^2(B_iB_jW_K)(q^m)|
+ &\le e^{2/3}\left(h^2+\tfrac83h+\tfrac83\right)
+       q^{a_i+a_j}q^{m-R}\\
+ &\le\tfrac83e^{2/3}(h+1)^2q^{a_i+a_j}q^{m-R}.
+\end{align*}
+Here every term contains a derivative, which provides at least one factor $x/q^R$; any additional such factors are at most one. Summing over $m\ge\max(1,R)$ costs at most $(1-q)^{-1}\le2$. Since $(16/3)e^{2/3}<12$,
+\begin{equation}\label{eq:entry-bound}
+ |\Lcal(B_iB_jW_K)|\le12(i+j+1)^2q^{a_i+a_j}.
+\end{equation}
+
+Extract $q^{a_i}$ from row $i$ and $q^{a_j}$ from column $j$. Hadamard's inequality applied to the remaining matrix gives
+\begin{equation*}
+ |\Delta_K(\xi_p)|\le
+ q^{2\sum_{j=0}^{K-1}a_j}\bigl[12(2K-1)^2\sqrt K\bigr]^K.
+\end{equation*}
+If $j=3u+r$, $0\le r<3$, direct summation gives $a_j=3u(u+1)/2+r(u+1)$. Summing this expression over the three residue classes gives $2\sum_{j<K}a_j=b_K$ in~\eqref{eq:analytic-exact}. Finally the logarithm of the prefactor is $O(K\log K)$.
+\end{proof}
+
+\section{The coefficientwise factor at primes dividing the base}
+
+\begin{proposition}\label{prop:content}
+For every prime $\ell\mid p$, put $r=v_\ell(p)$. Every coefficient of $\Delta_K(X)$ has $\ell$-adic valuation at least $re_K$. Furthermore,
+\begin{equation}\label{eq:leading}
+ [X^K]\Delta_K(X)=(-1)^{K(K-1)/2}p^{e_K}.
+\end{equation}
+In particular $\Delta_K$ has degree exactly $K$ and $p^{-e_K}\Delta_K\in\Z_\ell[X]$ for each prime $\ell\mid p$.
+\end{proposition}
+
+\begin{proof}
+Set $r_a=p^a$ and
+\begin{equation*}
+ F_K(x)=\prod_{a=1}^K(x-r_a),\qquad
+ D_K(x)=(-1)^Kp^{-A_K}F_K(x).
+\end{equation*}
+Let $h_t=h_t(r_1,\ldots,r_K)$ be the complete homogeneous symmetric polynomial, with $h_0=1$ and $h_t=0$ for $t<0$. It follows directly from its monomial expansion that $h_t\in\Z$ and $v_\ell(h_t)\ge rt$ for $t\ge0$.
+
+Work in $\Q_\ell$. Introduce
+\begin{equation*}
+ g(y)=\frac{y(1+y)}{(1-y)^3},\quad
+ Z=\sum_{n\ge1}g(p^n),\quad
+ c_j=\frac{j^2p^j}{1-p^j},\quad
+ H(t)=\sum_{j\ge1}c_jt^j=\sum_{n\ge1}g(p^nt).
+\end{equation*}
+All required series converge $\ell$-adically; in particular $v_\ell(c_j)\ge rj$. The identity $g(y^{-1})=-g(y)$ gives
+\begin{equation}\label{eq:local-tail}
+ S_a=-Z+H(r_a).
+\end{equation}
+To check it explicitly, the definition of $S_a$ equals $-\sum_{n=1}^ag(p^n)$, while $H(r_a)=\sum_{n>a}g(p^n)$.
+
+Put
+\begin{equation*}
+ M_k(X)=\Lcal_X\left(\frac{x^k}{F_K(x)}\right).
+\end{equation*}
+The quotient in the division of $x^k$ by $F_K$ is zero for $k<K$; for $k\ge K$ it is $\sum_{j=0}^{k-K}h_{k-K-j}x^j$. The partial-fraction coefficient at $x=r_a$ is $r_a^k/F_K'(r_a)$, and
+\begin{equation*}
+ \Lcal_X((x-r_a)^{-1})=-\frac{X-S_a}{r_a}.
+\end{equation*}
+The divided-difference identities needed below are
+\begin{equation}\label{eq:dd}
+ \sum_{a=1}^K\frac{r_a^m}{F_K'(r_a)}=h_{m-K+1}\quad(m\ge0),
+ \qquad
+ \sum_{a=1}^K\frac1{r_aF_K'(r_a)}=-\frac1{F_K(0)}.
+\end{equation}
+The first identity follows by expanding $1/F_K(x)=\sum_a(F_K'(r_a)(x-r_a))^{-1}$ at infinity; the second is its evaluation at $x=0$.
+
+Write $U=X+Z$ and define
+\begin{equation}\label{eq:Rk}
+ R_k=\sum_{j\ge1}c_jh_{k+j-K}
+       +\sum_{j=1}^{k-K}\mu_jh_{k-K-j},
+\end{equation}
+where an upper limit below one means an empty sum. Substituting~\eqref{eq:local-tail} into the partial fractions and then using~\eqref{eq:dd} gives the exact identities
+\begin{equation}\label{eq:Mk}
+ M_0(X)=\frac{U}{F_K(0)}+R_0,\qquad
+ M_k(X)=-Uh_{k-K}+R_k\quad(k\ge1).
+\end{equation}
+The infinite sum is convergent: its nonzero terms have valuation at least $rj+r(k+j-K)$ once $k+j-K\ge0$. For $k=0$, the divided difference is applied to $H(t)/t$, whose power-series exponents are nonnegative, so no additional term is missing. All $R_k$ are $\ell$-integral, since the $h_t$ and $c_j$ are integral and $\mu_j=j^2/(p^j-1)$ is integral at $\ell$.
+
+Let $T=[M_{i+j}(X)]_{0\le i,j<K}$. Every entry except possibly $(0,0)$ belongs to $\Z_\ell[X]$. Since $v_\ell(F_K(0))=rA_K$, multiplying row zero by $p^{A_K}$ makes $T$ integral over $\Z_\ell[X]$. Therefore every coefficient of $\det T$ has valuation at least $-rA_K$. The scalar relationship is
+\begin{equation}\label{eq:Delta-T}
+ \Delta_K(X)=(-1)^{K^2}p^{A_KK}\det T.
+\end{equation}
+This proves the coefficient lower bound $rA_K(K-1)=re_K$.
+
+For the leading coefficient, the matrix of coefficients of $X$ in $T$ has $(0,0)$ entry $1/F_K(0)$ and zero entries elsewhere in row or column zero. Its remaining block has entries $-h_{i+j-K}$ for $1\le i,j<K$: entries with $i+j<K$ vanish, and entries with $i+j=K$ equal $-1$. Reversing the columns makes this block triangular. Its determinant is $(-1)^{(K-1)(K-2)/2}(-1)^{K-1}$. Since $F_K(0)=(-1)^Kp^{A_K}$, substitution in~\eqref{eq:Delta-T} gives~\eqref{eq:leading}, including $K=1$.
+\end{proof}
+
+\section{A cyclotomic denominator estimate}
+
+This section works first with an indeterminate $z$ in place of $p$. Let $\Delta_{K,z}(X)$ be defined by~\eqref{eq:formal-functional} and~\eqref{eq:Delta}, replacing $p$ everywhere by $z$. Write $\Phi_d(z)$ for the $d$th cyclotomic polynomial. Define
+\begin{equation}\label{eq:cd}
+ c_{K,d}=\begin{cases}
+ \left\lceil K^2/(4d)+2K+17d/16\right\rceil,&1\le d\le K/2,\\
+ 7(K-d)+3,&K/2<d\le K,
+ \end{cases}
+\end{equation}
+and set
+\begin{equation}\label{eq:CK}
+ C_K=\prod_{d=1}^K\Phi_d(p)^{c_{K,d}}.
+\end{equation}
+
+\begin{proposition}\label{prop:denominators}
+One has
+\begin{equation}\label{eq:laurent-integral}
+ \left(\prod_{d=1}^K\Phi_d(z)^{c_{K,d}}\right)\Delta_{K,z}(X)
+       \in\Z[z,z^{-1}][X].
+\end{equation}
+For every fixed integer $p\ge2$, $C_K$ is a positive integer coprime to $p$, and
+\begin{equation}\label{eq:denom-growth}
+ \log C_K\le\frac{385}{64\pi^2}(\log p)K^3
+                   +O_p(K^2\log K).
+\end{equation}
+\end{proposition}
+
+We separate local pole bounds from their global summation. All local estimates apply coefficientwise in $X$.
+
+\subsection{The cluster basis at a root of unity}
+
+Fix $d\le K$, a primitive $d$th root $\omega$, and the uniformizer $\tau=z-\omega$. Let $v=\ord_\tau$ and work over $\C((\tau))$. The variable $X$ remains formal; the valuation of a polynomial in $X$ means the minimum valuation of its coefficients. Set
+\begin{equation*}
+ F(x)=\prod_{a=1}^K(x-z^a),\qquad
+ D(x)=\prod_{a=1}^K(1-z^{-a}x).
+\end{equation*}
+Partition the indices into residue classes modulo $d$:
+\begin{equation*}
+ I_r=\{a:1\le a\le K,\ a\equiv r\pmod d\},\quad
+ m_r=|I_r|,\quad F_r(x)=\prod_{a\in I_r}(x-z^a).
+\end{equation*}
+For each nonempty cluster use the polynomials
+\begin{equation}\label{eq:cluster-basis}
+ G_{r,j}(x)=\frac{F(x)}{F_r(x)}(x-\omega^r)^j,
+ \qquad 0\le j<m_r.
+\end{equation}
+There are $K$ such polynomials, all of degree below $K$, and their change-of-basis determinant is a local unit. Indeed, at $\tau=0$ the polynomials from cluster $r$ vanish to full multiplicity at all other clusters. Modulo $(x-\omega^r)^{m_r}$ they are the ordinary powers multiplied by a unit. The Chinese remainder theorem therefore proves that their reductions form a basis. The Gram determinant in this basis has the same local valuation as $\Delta_{K,z}$.
+
+Divide $G_{r,j}G_{s,k}$ by $D$ and decompose its proper part into simple poles. The polynomial quotient has degree at most $K-2$ and coefficients in $\C[[\tau]]$; the leading coefficient of $D$ is a unit. Applying the polynomial moments to this quotient produces at most a simple pole, because each $j^2/(z^j-1)$ has at most a simple pole.
+
+If $r\ne s$, $F$ divides $G_{r,j}G_{s,k}$, so the proper part is zero. If $r=s$, the coefficient of a simple pole at $x=z^a$, $a\in I_r$, has valuation at least $j+k-(m_r-1)$. To see this, the numerator contributes $(z^a-\omega^r)^{j+k}$, while $F'(z^a)$ has precisely $m_r-1$ vanishing factors, each of order one. All other factors are units. The pole moment $X-S_a(z)$ has order at most three. Thus the image of the proper part has valuation at least
+\begin{equation}\label{eq:pole-local}
+ j+k-m_r-2.
+\end{equation}
+
+\subsection{A general bound for small cyclotomic orders}
+
+In a cluster of size $m$ assign the weights
+\begin{equation*}
+ w_j=\max\{1/2,(m+2)/2-j\},\qquad 0\le j<m.
+\end{equation*}
+Multiply row and column $j$ by $\tau^{w_j}$. Half-integer powers can be interpreted in $\C[[\sqrt\tau]]$, retaining the normalization $v(\tau)=1$. Every scaled polynomial-part entry is integral because the sum of any two weights is at least one. Every proper-part entry is integral by~\eqref{eq:pole-local} and $w_j+w_k\ge m+2-j-k$. It follows that
+\begin{equation}\label{eq:cluster-cost}
+ -v(\Delta_{K,z})\le\sum_r f(m_r),\qquad
+ f(m)=\sum_{j=0}^{m-1}\max\{1,m+2-2j\}.
+\end{equation}
+Elementary summation gives
+\begin{equation*}
+ f(m)=\begin{cases}
+ m^2/4+2m+1,&m\text{ even},\\
+ m^2/4+2m+3/4,&m\text{ odd}.
+ \end{cases}
+\end{equation*}
+In particular $f(m)\le m^2/4+2m+1$. Write $K=td+s$, $0\le s<d$. There are $s$ clusters of size $t+1$ and $d-s$ of size $t$, whence
+\begin{equation*}
+ \sum_r m_r^2=\frac{K^2}{d}+s(1-s/d)
+ \le\frac{K^2}{d}+\frac d4.
+\end{equation*}
+Combining this with~\eqref{eq:cluster-cost} yields
+\begin{equation}\label{eq:low-order}
+ -v(\Delta_{K,z})\le\frac{K^2}{4d}+2K+\frac{17d}{16}.
+\end{equation}
+This proves the required bound in the first range of~\eqref{eq:cd}.
+
+\subsection{The high-order range and the polynomial-moment correction}
+
+Now assume $K/2<d\le K$, and put $t=K-d$. The clusters have sizes one or two, with precisely $t$ double clusters. Use weights $(2,1)$ on each double cluster, weight $3/2$ on the singleton with index $a=d$, and weight zero on all other singletons. The last singletons have indices $a<d$, so their $S_a(z)$ are analytic at $z=\omega$ and their proper-part entries have no pole. The double clusters are made integral by~\eqref{eq:pole-local}; the $a=d$ singleton has at most a third-order pole. Cross-cluster proper parts vanish. These scalings therefore clear the entire proper part, at total determinant cost
+\begin{equation}\label{eq:high-scale}
+ 6t+3.
+\end{equation}
+
+The polynomial quotient still needs to be included. Its degree is at most $K-2<2d$, so its only possibly singular nonconstant moment is
+\begin{equation*}
+ \mu_d(z)=\frac{d^2}{z^d-1}.
+\end{equation*}
+It can occur when $K-d\ge2$; the implication $d>K/2\Rightarrow K-2<d$ is false and is not used here.
+
+For polynomials $f,g$ of degree below $K$, let
+\begin{equation*}
+ B_d(f,g)=[x^d]\,(fg/D)_+,
+\end{equation*}
+where $(\cdot)_+$ denotes polynomial quotient. If $\deg f\le d$, then $\deg(fg)\le K+d-1$, and its quotient by $D$ has degree below $d$. Thus $B_d(f,g)=0$ for every $g$. The radical of this bilinear form contains the polynomials of degree at most $d$, and consequently
+\begin{equation}\label{eq:rank}
+ \rank B_d\le r_d:=\max\{0,K-d-1\}=\max\{0,t-1\}.
+\end{equation}
+For $d\ge K-1$ the form is identically zero, as also stated by this formula. This is an exact rank bound over the fraction field, not only a rank bound after reduction modulo $\tau$.
+
+The coefficient matrix of $B_d$ is integral at $\tau=0$. The cluster basis change and all row and column weights preserve its rank and integrality. Following the scalings in~\eqref{eq:high-scale}, the full Gram matrix therefore has the form
+\begin{equation*}
+ A(\tau)+\tau^{-1}B(\tau),
+\end{equation*}
+where $A,B$ have coefficients in $\C[[\sqrt\tau]][X]$ and $\rank B\le r_d$. The analytic unit $\tau d^2/(z^d-1)$ has been absorbed into $B$. In the determinant expansion by columns, every term choosing more than $r_d$ columns from $B$ vanishes by linear dependence. Each remaining term has valuation at least $-r_d$. Removing the row and column scalings proves
+\begin{equation}\label{eq:high-order}
+ -v(\Delta_{K,z})\le6t+3+\max(0,t-1)\le7(K-d)+3.
+\end{equation}
+This proves the high-order part of~\eqref{eq:cd} without discarding the polynomial moments.
+
+\subsection{Returning to integral polynomials}
+
+The original partial fractions and polynomial division show directly that every coefficient of $\Delta_{K,z}$ belongs to
+\begin{equation}\label{eq:localization}
+ \Z[z,z^{-1},(z^n-1)^{-1}:1\le n\le K].
+\end{equation}
+Indeed the differences between distinct pole positions are $z^a-z^b$, each a monomial times $z^{|a-b|}-1$; the moments introduce only the displayed types of factors. In this ring all denominators other than powers of $z$ factor into the monic polynomials $\Phi_d$ with $d\le K$. The local estimates at their primitive roots cancel every such denominator. Gauss's lemma, or divisibility by monic polynomials in $\Z[z]$, then gives~\eqref{eq:laurent-integral}. There are no additional rational constant denominators in~\eqref{eq:localization}.
+
+At $z=p\ge2$ all $\Phi_d(p)$ are positive integers. If $\ell\mid p$, then $\Phi_d(p)\equiv\Phi_d(0)\equiv\pm1\pmod\ell$, so $C_K$ is coprime to $p$.
+
+\subsection{Summation of the local costs}
+
+We use the elementary estimates
+\begin{align}
+ \sum_{d\le M}\frac{\varphi(d)}d
+   &=\frac6{\pi^2}M+O(\log M),\label{eq:tot1}\\
+ \sum_{d\le M}\varphi(d)
+   &=\frac3{\pi^2}M^2+O(M\log M),\label{eq:tot2}\\
+ \sum_{d\le M}d\varphi(d)
+   &=\frac2{\pi^2}M^3+O(M^2\log M).\label{eq:tot3}
+\end{align}
+To recall their elementary derivation, use $\varphi(n)/n=\sum_{a\mid n}\mu(a)/a$, where here $\mu$ is the M\"obius function. Summing and using $\sum_{a\ge1}\mu(a)/a^2=1/\zeta(2)=6/\pi^2$ proves~\eqref{eq:tot1}; the floor-function errors are bounded by $\sum_{a\le M}1/a$ and the tail of the absolutely convergent series is $O(1/M)$. Partial summation gives~\eqref{eq:tot2} and~\eqref{eq:tot3}.
+
+The ceiling in the low-order range contributes only $O(\sum_{d\le K}\varphi(d))=O(K^2)$. Applying these estimates with $M=K/2$ gives
+\begin{align*}
+ \sum_{d\le K/2}c_{K,d}\varphi(d)
+ &\le\frac{K^2}{4}\sum_{d\le K/2}\frac{\varphi(d)}d
+   +2K\sum_{d\le K/2}\varphi(d)
+   +\frac{17}{16}\sum_{d\le K/2}d\varphi(d)+O(K^2)\\
+ &=\frac{161}{64\pi^2}K^3+O(K^2\log K).
+\end{align*}
+For the high-order range,
+\begin{align*}
+ \sum_{K/2<d\le K}c_{K,d}\varphi(d)
+ &=7K\sum_{K/2<d\le K}\varphi(d)
+     -7\sum_{K/2<d\le K}d\varphi(d)+O(K^2)\\
+ &=\frac7{2\pi^2}K^3+O(K^2\log K).
+\end{align*}
+Hence
+\begin{equation}\label{eq:phi-cost}
+ \sum_{d\le K}c_{K,d}\varphi(d)
+ \le\frac{385}{64\pi^2}K^3+O(K^2\log K).
+\end{equation}
+
+Finally the cyclotomic product formula gives, uniformly in $d$,
+\begin{equation*}
+ \log\Phi_d(p)=\varphi(d)\log p
+    +\sum_{a\mid d}\mu(d/a)\log(1-p^{-a})
+    =\varphi(d)\log p+O_p(1).
+\end{equation*}
+The uniform error follows from $\sum_{a\ge1}|\log(1-p^{-a})|<\infty$. Since $\sum_{d\le K}c_{K,d}=O(K^2\log K)$, summing these errors together with~\eqref{eq:phi-cost} proves~\eqref{eq:denom-growth} and completes Proposition~\ref{prop:denominators}.
+
+\begin{corollary}\label{cor:integer-polys}
+The polynomials $P_K(X)=C_Kp^{-e_K}\Delta_K(X)$ belong to $\Z[X]$ and have degree $K$.
+\end{corollary}
+\begin{proof}
+For primes $\ell\nmid p$, the specialization of~\eqref{eq:laurent-integral} shows that $C_K\Delta_K$ is $\ell$-integral, and division by $p^{e_K}$ preserves this property. For primes $\ell\mid p$, Proposition~\ref{prop:content} gives the integrality of $p^{-e_K}\Delta_K$ directly; multiplication by $C_K$ preserves it. A rational number integral at every prime is an integer. The degree assertion follows from~\eqref{eq:leading}.
+\end{proof}
+
+\section{Infinitely many nonzero determinants}
+
+The differential functional need not be positive. Instead of deriving nonvanishing from a positive measure, we compare rational interpolants at the nested exterior nodes. This argument concerns the actual real functional and requires no rationality hypothesis on $\xi_p$.
+
+\begin{proposition}\label{prop:normality}
+The determinants $\Delta_K(\xi_p)$ are nonzero for infinitely many positive integers $K$.
+\end{proposition}
+
+\begin{proof}
+Define the Cauchy transform, initially for $|z|>q$, by
+\begin{equation}\label{eq:cauchy}
+ \mathcal F(z)=\Lcal\left(\frac1{z-x}\right)
+   =\sum_{m\ge1}\frac{q^m(z+q^m)}{(z-q^m)^3}.
+\end{equation}
+This series converges locally normally away from $\{0,q,q^2,\ldots\}$. On a compact subset of that domain the tail terms are uniformly $O(q^m)$; only finitely many earlier terms remain. It is analytic at infinity and is $O(z^{-2})$. At $z=q^m$, its principal part is
+\begin{equation*}
+ 2q^{2m}(z-q^m)^{-3}+q^m(z-q^m)^{-2}.
+\end{equation*}
+All other summands are analytic in a neighborhood of that point. Thus it has infinitely many genuine poles and is not rational.
+
+For a polynomial $Q$ of degree at most $n-1$, set
+\begin{align}
+ R_{n,Q}(z)&=\Lcal\left(\frac{Q(x)}{(z-x)D_n(x)}\right),
+ \label{eq:Rnormal}\\
+ T_{n,Q}(z)&=\Lcal\left(
+ \frac{Q(z)D_n(x)-D_n(z)Q(x)}{(z-x)D_n(x)}\right).
+ \label{eq:Tnormal}
+\end{align}
+The numerator in~\eqref{eq:Tnormal} vanishes identically on $z=x$, so division by $z-x$ is exact as a polynomial in $x,z$. Applying $\Lcal$ to the coefficients after dividing by $D_n(x)$ produces a polynomial $T_{n,Q}(z)$ of degree at most $n-1$. Linearity gives
+\begin{equation}\label{eq:interpolation-id}
+ \mathcal F(z)Q(z)-T_{n,Q}(z)=D_n(z)R_{n,Q}(z).
+\end{equation}
+
+Suppose $\Delta_n(\xi_p)=0$. A nonzero vector in the kernel of its Gram matrix supplies a nonzero polynomial $Q_n$ of degree at most $n-1$ satisfying
+\begin{equation}\label{eq:orthogonality}
+ \Lcal\left(\frac{x^jQ_n(x)}{D_n(x)}\right)=0
+       \qquad(0\le j<n).
+\end{equation}
+The geometric expansion of $(z-x)^{-1}$ at infinity, followed by
+\eqref{eq:orthogonality}, gives $R_{n,Q_n}(z)=O(z^{-n-1})$.
+All termwise operations are legitimate: for fixed $n$, the rational functions are analytic near $[0,q]$, their differentiated summands are $O(q^m)$, and the geometric expansion and its first two $x$-derivatives converge uniformly for $|z|>r>q$. Writing $T_n=T_{n,Q_n}$, we therefore have
+\begin{equation}\label{eq:errornormal}
+ E_n(z):=\mathcal F(z)Q_n(z)-T_n(z)=O(z^{-1}).
+\end{equation}
+The transform $R_{n,Q_n}$ is analytic at every $p^a$, all of which lie outside the support $\{q^m:m\ge1\}$. Thus~\eqref{eq:interpolation-id} also gives
+\begin{equation}\label{eq:exterior-zeros}
+ E_n(p^a)=0\qquad(1\le a\le n).
+\end{equation}
+
+If the determinants of both sizes $n$ and $n+1$ vanish, choose $Q_n,Q_{n+1}$ as above. The polynomial
+\begin{equation*}
+ V(z)=T_{n+1}(z)Q_n(z)-T_n(z)Q_{n+1}(z)
+     =Q_{n+1}(z)E_n(z)-Q_n(z)E_{n+1}(z)
+\end{equation*}
+is $O(z^{n-1})$ at infinity, using the degree bounds on the $Q$'s and~\eqref{eq:errornormal}. Hence it has degree at most $n-1$. It vanishes at the $n$ distinct points $p,p^2,\ldots,p^n$ by
+\eqref{eq:exterior-zeros}, so it is zero. Consequently
+$T_n/Q_n=T_{n+1}/Q_{n+1}$ as rational functions. This argument never divides by $Q_n(p^a)$ or $Q_{n+1}(p^a)$; coincident zeros do not invalidate it.
+
+Assume now, toward contradiction, that all determinants from some size $N$ onward vanish. Their rational functions are all the same; choose a fixed reduced expression $T/Q$ with $Q\ne0$ and $\gcd(T,Q)=1$. This includes the possibility $T=0$, with $Q=1$. Polynomial coprimality yields nonzero polynomials $U_n$ such that
+\begin{equation*}
+ Q_n=U_nQ,\qquad T_n=U_nT\qquad(n\ge N).
+\end{equation*}
+Set $E=\mathcal FQ-T$. Since $\mathcal F$ is nonrational, $E$ is nonzero. It is meromorphic at infinity, and $U_NE=E_N=O(z^{-1})$ implies a finite positive order of vanishing there. Thus, for some integer $h\ge1$ and $c\ne0$,
+\begin{equation*}
+ E(z)=cz^{-h}+O(z^{-h-1}).
+\end{equation*}
+The identities $U_nE=E_n=O(z^{-1})$ force $\deg U_n\le h-1$ for every $n\ge N$. The same Laurent expansion implies that $E(z)$ has no zeros when $|z|$ is sufficiently large. For all such exterior nodes $p^a$ with $a\le n$, equation~\eqref{eq:exterior-zeros} forces $U_n(p^a)=0$. As $n$ tends to infinity, this gives arbitrarily many distinct zeros of a nonzero polynomial of degree at most $h-1$, a contradiction. There can be no eventually singular tail.
+\end{proof}
+
+\section{Assembly of the rationality contradiction}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Let
+\begin{equation*}
+ \eps=\frac{11}{18}-\frac{385}{64\pi^2}.
+\end{equation*}
+This number is strictly positive. Indeed, the equivalent inequality is $\pi^2>315/32$, which follows already from $\pi>157/50$. For an entirely rational lower estimate,
+\begin{equation*}
+ \eps>
+ \frac{11}{18}-\frac{385}{64(157/50)^2}
+ =\frac{3487}{3549456}>0.
+\end{equation*}
+
+Corollary~\ref{cor:integer-polys} supplies degree-$K$ integer polynomials $P_K=C_Kp^{-e_K}\Delta_K$. Combining Proposition~\ref{prop:analytic}, Proposition~\ref{prop:denominators}, and $e_K=K^3/2-K/2$, gives
+\begin{align*}
+ \log|P_K(\xi_p)|
+ &\le\frac{385}{64\pi^2}(\log p)K^3
+       -\frac12(\log p)K^3-\frac19(\log p)K^3
+       +O_p(K^2\log K)\\
+ &=-\eps(\log p)K^3+O_p(K^2\log K).
+\end{align*}
+The inequality is also harmless at zero values. By Proposition~\ref{prop:normality}, infinitely many values are nonzero.
+
+If $\xi_p=a/b$ with $a\in\Z$ and $b\in\Z_{>0}$, then for each $K$ the number $b^KP_K(a/b)$ is an integer, because $P_K\in\Z[X]$ and $\deg P_K=K$. On the infinite set of nonzero values it satisfies
+\begin{equation*}
+ 1\le |b^KP_K(a/b)|
+ \le\exp\{-\eps(\log p)K^3+O_p(K^2\log K)+K\log b\}.
+\end{equation*}
+The upper bound tends to zero as $K\to\infty$. Every infinite set of positive integers is unbounded, so this is a contradiction along the stated infinite set. Hence $\xi_p$ is irrational.
+\end{proof}
+
+\begin{remark}[Scope of the conclusion]
+The argument proves irrationality for each fixed integer $p\ge2$. It does not supply a uniform effective irrationality measure, transcendence, a statement for arbitrary rational $q$, or a result about the ordinary real number $\zeta(7)$. No such extension is inferred here. The nonvanishing proposition needs only infinitely many sizes, and neither the size of the first useful determinant nor the density of those sizes is asserted.
+\end{remark}
+
+\begin{remark}[What the arithmetic proof includes]
+The main argument uses the conservative cyclotomic constant $385/(64\pi^2)$. The proof explicitly retains the moment $d^2/(z^d-1)$ in the range $K/2<d\le K$ and bounds its exact rank by $\max(0,K-d-1)$. The stronger variant proved in the appendix is not needed for the main argument. The real determinant estimate allows vanishing; nonvanishing is supplied separately by Proposition~\ref{prop:normality}.
+\end{remark}
+
+\section{Companion results and verification}
+
+\subsection{Results reserved for a separate article}
+
+The following statements have separate written proofs in the research records cited below and are reserved for companion work. They are not proved in this paper and are not used in Theorem~\ref{thm:main}. Those records describe internally reviewed research proofs, not external certification or complete Lean formalizations.
+
+\begin{enumerate}
+\item \emph{Mixed weights and signed bases.} For every integer $|p|\ge2$, the numbers $1,Z_2(p),Z_3(p)$ are linearly independent over $\Q$, where $Z_s(p)=\sum_{n\ge1}n^{s-1}/(p^n-1)$~\cite{CompanionMixed}. This also gives the weight-three assertion for negative bases. The derivative mixture and its signed-base estimate belong to that companion argument.
+\item \emph{Rational parameters.} For coprime positive integers $a<b$, with $a/b\le1/2$ and
+\begin{equation*}
+ \frac{\log a}{\log b}<1-\frac{2889}{352\pi^2}\,,
+\end{equation*}
+the value $\zeta_{a/b}(3)$ is irrational~\cite{CompanionRational}. The simpler sufficient condition is $b>a^6$. The additional ingredient is a degree bound in the inverse parameter, followed by homogenization of the cyclotomic clearer.
+\item \emph{A character-twisted family.} For every integer $p\ge2$, the numbers $1,B_1(p),B_2(p)$ are linearly independent over $\Q$, where
+\begin{equation*}
+ B_s(p)=\sum_{n\ge1}\frac{n^{s-1}p^n}{p^{2n}+1}\,.
+\end{equation*}
+In particular $B_2(p)$ is irrational~\cite{CompanionBeta}. Its step-two pole lattice and renormalized character functional require a separate proof.
+\item \emph{Higher-weight structural results.} For each fixed integer $s\ge2$, analogous pure-pole moments, base-prime content, real determinant bounds, and infinitely many nonzero determinants are established in the companion notes~\cite{CompanionMixed}. These statements do not by themselves prove individual irrationality at odd weights $s\ge5$. The available complete denominator estimates do not yield the needed decay there.
+\end{enumerate}
+
+The repository's future-results inventory gives precise source locations and separates these statements from finite experiments and unsuccessful transfers. No assertion about a classical odd zeta value follows by letting $q$ tend to one: positive reciprocal integers do not approach that limit, and irrationality is not preserved under limits.
+
+\subsection{Computations, formalization, and disclosure}
+
+The proof in this paper is an all-size written argument. Exact rational determinant computations and interval evaluations with explicit infinite-tail bounds provide independent consistency checks of its formulas. They do not replace the estimates or the nonvanishing argument. The repository supplies the source programs, generated coefficient data, verification records, and commands for replay.
+
+The completed accompanying Lean~4.34.1 project, using its pinned Mathlib dependency, verifies Theorem~\ref{thm:main}, including the explicit series statement, for every integer $p\ge2$. The full build and transitive axiom audit of the public theorem and its audited supporting declarations use only \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}. These proofs contain no \texttt{sorryAx} dependency or project-specific axioms. The repository supplies the audit commands and their output. Earlier status records reporting nine proof placeholders describe historical checkpoints, not this completed development.
+
+The formal proof uses the refined cyclotomic exponents from Appendix~\ref{app:stronger} and an elementary finite sieve with the primes $2$ and $3$ to prove the sufficient estimate
+\begin{equation*}
+ \log C_K^{\mathrm{str}}
+ \le\frac{107}{192}(\log p)K^3+O_p(K^2\log K),
+ \qquad
+ \frac{11}{18}-\frac{107}{192}=\frac{31}{576}>0.
+\end{equation*}
+This substitutes a rational growth constant in the formal irrationality argument; the statement of Theorem~\ref{thm:main} is unchanged. The sharper $\pi$-based growth estimates in this manuscript are not claimed as unconditional Lean theorems. Appendix~\ref{app:elementary} gives the finite arithmetic argument and explicitly derives this rational sieve bound, then weakens it to the $9/16$ constant in the linked second-proof record~\cite{ElementaryRecord}.
+
+The second route is also kernel-checked. The module \texttt{GaussianIdentity.lean} proves the explicit Gaussian residue identity, its low-degree vanishing, and its exceptional exponent $-1$. The module \texttt{ElementaryContent.lean} derives the coefficient-content theorem through that identity. The module \texttt{ElementarySecondProof.lean} assembles the $9/16$ growth estimate and $7/144$ decay margin into \texttt{QZeta3.irrational\_qzeta3\_elementary}, the same explicit series statement as Theorem~\ref{thm:main}. It applies the irrationality criterion directly. The combined build and audit of all $49$ selected declarations pass with only the three standard axioms listed above. A transitive dependency check confirms that the second theorem uses the Gaussian arithmetic route and does not invoke the original content theorem or original final irrationality theorem. The two routes share the analytic determinant bound, local cyclotomic denominator theorem, nonvanishing theorem, and supporting algebraic lemmas. These shared components are part of the verified proof, so the second theorem is not presented as a wholly independent formalization.
+
+The construction, proof development, computations, and exposition were developed with substantial AI assistance in the shared research sessions. The source record credits the initial differential-functional construction and experiments to the supplied Claude-session report and the all-size completion to the subsequent GPT session. These are provenance statements from those records, not independently authenticated claims about model identity. This edition adds source comparison, fresh internal mathematical reviews, and a reproducible repository. The project owner has selected the public pen name \texttt{uplift-universal-inc} for this manuscript and its citation metadata. No external referee endorsement is implied.
+
+\appendix
+\section{A stronger high-order denominator bound}\label{app:stronger}
+
+The main proof uses weights $(2,1)$ on double clusters. A basis that vanishes exactly at the upper node permits weights $(2,0)$ and a larger asymptotic margin. This appendix records the separate improvement; none of its assertions is needed to make the main coefficient $\eps$ positive.
+
+\begin{proposition}\label{prop:stronger}
+In~\eqref{eq:cd}, one may replace $7(K-d)+3$ by $5(K-d)+3$ for $K/2<d\le K$. If $C_K^{\mathrm{str}}$ is the resulting cyclotomic product and $P_K^{\mathrm{str}}=C_K^{\mathrm{str}}p^{-e_K}\Delta_K$, then $P_K^{\mathrm{str}}\in\Z[X]$ and
+\begin{align*}
+ \log C_K^{\mathrm{str}}
+ &\le\frac{321}{64\pi^2}(\log p)K^3+O_p(K^2\log K),\\
+ \log|P_K^{\mathrm{str}}(\xi_p)|
+ &\le-\left(\frac{11}{18}-\frac{321}{64\pi^2}\right)
+            (\log p)K^3+O_p(K^2\log K).
+\end{align*}
+\end{proposition}
+
+\begin{proof}
+Retain the local notation of Section~4, with $d>K/2$ and $t=K-d$. The double clusters are exactly $\{a,a+d\}$ for $1\le a\le t<d$. For one such cluster let
+\begin{equation*}
+ F_a(x)=(x-z^a)(x-z^{a+d}),\qquad V_a(x)=F(x)/F_a(x),
+\end{equation*}
+and replace its two basis elements by
+\begin{equation*}
+ \widetilde G_{a,0}(x)=V_a(x),\qquad
+ \widetilde G_{a,1}(x)=V_a(x)(x-z^{a+d}).
+\end{equation*}
+The change from the previous cluster basis is triangular with diagonal entries one: $x-z^{a+d}$ differs from $x-\omega^a$ by an analytic scalar. Thus the total basis change remains a local unit. Retain the singleton basis elements from~\eqref{eq:cluster-basis}.
+
+The proper part is still block diagonal by clusters. In the block for $a$, every entry involving $\widetilde G_{a,1}$ has zero residue at the upper node $z^{a+d}$, because that basis element vanishes there identically for variable $z$. At the lower node $z^a$, the single factor $z^a-z^{a+d}$ in $\widetilde G_{a,1}(z^a)$ has local valuation one and cancels the one vanishing factor in $F'(z^a)$. Since $a<d$, the lower moment $X-S_a(z)$ is analytic. Consequently, the proper-part entries $(0,1)$, $(1,0)$ and $(1,1)$ are analytic. The $(0,0)$ entry has pole order at most four: at either node the simple-pole coefficient has order at most one, and the pole moment has order at most three.
+
+Weights $(2,0)$ therefore clear the proper part of this block at determinant cost four. The singleton $a=d$ still costs three, and all other singletons cost zero. The total cost is $4t+3$. The polynomial part is treated exactly as before: its only possible singular moment is $\mu_d$, and its coefficient form has exact rank at most $\max(0,t-1)$ by~\eqref{eq:rank}. All new weights are nonnegative, so the analytic coefficient matrices stay integral after scaling. The same column-expansion argument gives
+\begin{equation*}
+ -v(\Delta_{K,z})\le4t+3+\max(0,t-1)\le5t+3.
+\end{equation*}
+This proves the improved local bound and, by the same localization argument, the improved integral-polynomial assertion.
+
+The low-order contribution remains $161/(64\pi^2)$. Replacing the high-order coefficient seven by five makes its contribution $5/(2\pi^2)$. Their sum is $321/(64\pi^2)$, with the same $O_p(K^2\log K)$ error as in Section~4. The real estimate and the coefficientwise $p$-factor are unchanged, yielding the second inequality of the proposition.
+\end{proof}
+
+The margin in this variant is $11/18-321/(64\pi^2)$, approximately $0.1029220494$. This decimal only describes the exact expression; it is not a numerical input to the proof.
+
+
+\section{A second proof with finite arithmetic and an elementary sieve}\label{app:elementary}
+
+This appendix gives the elementary variant recorded in~\cite{ElementaryRecord}. It changes two arithmetic parts of the proof: the coefficient-content argument is a finite Gaussian-binomial calculation, and the denominator summation uses only divisibility by $2$ and $3$. It reuses Proposition~\ref{prop:analytic}, the local cyclotomic estimates of Section~4 and Appendix~\ref{app:stronger}, and Proposition~\ref{prop:normality}. In particular, it is a second presentation of the determinant method, with a different content proof, not an independent determinant-free construction.
+
+\subsection{A finite Gaussian-binomial residue identity}
+
+For integers $0\le r\le n$, define the Gaussian polynomial by
+\begin{equation}\label{eq:gaussian-definition}
+ \gaussbinom{n}{r}{t}=h_{n-r}(1,t,\ldots,t^r)\in\Z[t],
+\end{equation}
+where the complete homogeneous polynomial $h_j$ is the sum of all monomials of total degree $j$ in the displayed variables. For $r>n$ put $\gaussbinom{n}{r}{t}=0$. Equivalently, its rectangular form $R(r,j)=\gaussbinom{r+j}{r}{t}$ satisfies
+\begin{equation*}
+ R(0,j)=R(r,0)=1,\qquad
+ R(r+1,j+1)=R(r,j+1)+t^{r+1}R(r+1,j).
+\end{equation*}
+These formulas define integer polynomials without dividing by any expression in $t$.
+
+\begin{lemma}[Gaussian residue identity]\label{lem:gaussian-residue}
+Let $K\ge1$, $r_a=p^a$ and $F_K(x)=\prod_{a=1}^K(x-r_a)$. For each integer $d\ge0$,
+\begin{equation}\label{eq:gaussian-residue}
+ \sum_{a=1}^K\frac{p^{ad}}{F_K'(p^a)}
+ =\begin{cases}
+ 0,&0\le d<K-1,\\[2pt]
+ p^{d-K+1}\gaussbinom{d}{K-1}{p},&d\ge K-1.
+ \end{cases}
+\end{equation}
+The exceptional exponent $d=-1$ satisfies
+\begin{equation}\label{eq:gaussian-exceptional}
+ \sum_{a=1}^K\frac{p^{-a}}{F_K'(p^a)}=-\frac1{F_K(0)}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For $0\le d<K$, Lagrange interpolation of $x^d$ at the distinct nodes $r_a$ and comparison of the coefficient of $x^{K-1}$ give zero for $d<K-1$ and one for $d=K-1$. For all $j\ge0$, the formal power-series identity
+\begin{equation*}
+ \prod_{a=1}^K(1-r_a u)^{-1}
+ =\sum_{a=1}^K\frac{r_a^{K-1}}{F_K'(r_a)}\frac1{1-r_a u}
+\end{equation*}
+gives
+\begin{equation*}
+ \sum_{a=1}^K\frac{r_a^{K-1+j}}{F_K'(r_a)}
+ =h_j(p,p^2,\ldots,p^K)
+ =p^j h_j(1,p,\ldots,p^{K-1}).
+\end{equation*}
+Use~\eqref{eq:gaussian-definition} with $d=K-1+j$. Finally, evaluating the partial-fraction identity for $1/F_K(x)$ at $x=0$ proves~\eqref{eq:gaussian-exceptional}. These are algebraic identities; no convergence assumption is involved.
+\end{proof}
+
+\subsection{Coefficient content from one finite truncation}
+
+Write
+\begin{equation*}
+ R_p=\{a/b\in\Q:a,b\in\Z,\ b\ne0,\ \gcd(b,p)=1\}.
+\end{equation*}
+Thus $R_p$ consists of the rational numbers integral at every prime dividing $p$. This definition applies to composite $p$ as well as prime $p$.
+
+\begin{proposition}[Finite content proof]\label{prop:elementary-content}
+For every integer $p\ge2$ and $K\ge1$,
+\begin{equation*}
+ p^{-e_K}\Delta_K(X)\in R_p[X].
+\end{equation*}
+\end{proposition}
+\begin{proof}
+Set $M=K^2+K$, and form the finite polynomials and rational constants
+\begin{equation*}
+ c_j=\frac{j^2p^j}{1-p^j}\in R_p,\qquad
+ H_M(t)=\sum_{j=1}^{M}c_jt^j,\qquad Z_M=H_M(1)\in R_p.
+\end{equation*}
+There exist $E_a\in R_p$ such that
+\begin{equation}\label{eq:finite-tail}
+ S_a=H_M(r_a)-Z_M+p^{M+1}E_a,\qquad 1\le a\le K.
+\end{equation}
+Indeed, put $g(y)=y(1+y)/(1-y)^3$. The difference
+$g(y)-\sum_{j=1}^{M}j^2y^j$ belongs to
+$y^{M+1}\Z[y,(1-y)^{-1}]$. Substitute $y=p^n$ and sum over $1\le n\le a$. Since $1-p^n$ is a unit in $R_p$, each remainder belongs to $p^{M+1}R_p$. The finite geometric identity
+\begin{equation*}
+ H_M(p^a)-H_M(1)
+ =-\sum_{n=1}^a\sum_{j=1}^{M}j^2p^{nj}
+\end{equation*}
+and $S_a=-\sum_{n=1}^a g(p^n)$ prove~\eqref{eq:finite-tail}.
+
+For $k\ge0$, division of $x^k$ by the monic integer polynomial $F_K$ gives an integer polynomial quotient $Q_k$ and the exact partial fractions
+\begin{equation*}
+ \frac{x^k}{F_K(x)}=Q_k(x)+
+ \sum_{a=1}^K\frac{r_a^k}{F_K'(r_a)(x-r_a)}.
+\end{equation*}
+Every polynomial moment of $Q_k$ lies in $R_p$, because $\Lcal_X(1)=0$ and $\mu_j=j^2/(p^j-1)\in R_p$. For the residue terms use $\Lcal_X((x-r_a)^{-1})=-(X-S_a)/r_a$. The denominators in the weights are controlled by
+\begin{equation}\label{eq:residue-unit-bound}
+ p^M\frac{r_a^{k-1}}{F_K'(r_a)}\in R_p\qquad(k\ge0).
+\end{equation}
+To see this, factor every $r_a-r_b$ as a signed power $p^{\min(a,b)}$ times the unit $p^{|a-b|}-1$. Even when $k=0$, the required power of $p$ is at most
+$a+\sum_{b\ne a}\min(a,b)\le K^2\le M$.
+
+Now substitute $X=U-Z_M$ into the matrix defining $\Delta_K$. Equation~\eqref{eq:finite-tail} replaces each pole moment by
+\begin{equation*}
+ X-S_a=U-H_M(r_a)-p^{M+1}E_a.
+\end{equation*}
+The last terms, multiplied by their residue weights, belong to $R_p$ by~\eqref{eq:residue-unit-bound}. Every sum coming from $H_M$ is a finite $R_p$-linear combination of the Gaussian sums~\eqref{eq:gaussian-residue}, with exponent $k+j-1\ge0$. It therefore belongs to $R_p$. The coefficient of $U$ also belongs to $R_p$ when $k\ge1$. For $k=0$ its exceptional value is handled by~\eqref{eq:gaussian-exceptional}.
+
+Finally $D_K=(-1)^Kp^{-A_K}F_K$ and $F_K(0)=(-1)^Kp^{A_K}$. Multiplying the preceding formulas by $(-1)^Kp^{A_K}$ yields the exact matrix identity
+\begin{equation}\label{eq:elementary-matrix}
+ \left[\Lcal_{U-Z_M}\left(\frac{x^{i+j}}{D_K(x)}\right)\right]_{0\le i,j<K}
+ =U E_{00}+p^{A_K}B(U),\qquad B(U)\in\operatorname{Mat}_K(R_p[U]),
+\end{equation}
+where $E_{00}$ has its only nonzero entry, equal to one, at $(0,0)$. Every determinant term uses at least $K-1$ entries carrying $p^{A_K}$; equivalently, expand in the single possible $U E_{00}$ entry. Thus the determinant belongs to $p^{A_K(K-1)}R_p[U]$. Substitution $U=X+Z_M$ preserves $R_p[X]$, and $A_K(K-1)=e_K$. This proves the proposition using one finite truncation.
+\end{proof}
+
+\subsection{The six-periodic denominator estimate}
+
+Retain the refined integer exponents
+\begin{equation*}
+ c_{K,d}^{\mathrm{str}}=
+ \begin{cases}
+ \lceil K^2/(4d)+2K+17d/16\rceil,&1\le d\le K/2,\\
+ 5(K-d)+3,&K/2<d\le K,
+ \end{cases}
+ \qquad
+ C_K^{\mathrm{str}}=\prod_{d=1}^K\Phi_d(p)^{c_{K,d}^{\mathrm{str}}}.
+\end{equation*}
+Their denominator-clearing property follows from the local proof of Proposition~\ref{prop:stronger}; it does not depend on the asymptotic totient estimates used there. Define
+\begin{equation*}
+ w(d)=\prod_{\substack{\ell\in\{2,3\}\\\ell\mid d}}\left(1-\frac1\ell\right).
+\end{equation*}
+The elementary product formula for $\varphi$ gives $\varphi(d)\le d\,w(d)$ for $d\ge1$. In residue classes $0,1,2,3,4,5$ modulo $6$, the respective weights are
+\begin{equation*}
+ \left(\frac13,\ 1,\ \frac12,\ \frac23,\ \frac12,\ 1\right).
+\end{equation*}
+Their sum is $4$, so their mean is $2/3$. Summing complete blocks of six and bounding the last incomplete block proves, for real $x\ge1$,
+\begin{equation}\label{eq:sieve-moments}
+ \sum_{1\le d\le x}w(d)=\frac23x+O(1),\quad
+ \sum_{1\le d\le x}d\,w(d)=\frac13x^2+O(x),\quad
+ \sum_{1\le d\le x}d^2w(d)=\frac29x^3+O(x^2).
+\end{equation}
+No prime-number or asymptotic totient theorem is needed.
+
+For the low-order range, the ceiling contributes at most one. Applying~\eqref{eq:sieve-moments} gives
+\begin{align*}
+ \sum_{d\le K/2}c_{K,d}^{\mathrm{str}}\varphi(d)
+ &\le\sum_{d\le K/2}
+ \left(\frac{K^2}{4}+(2K+1)d+\frac{17}{16}d^2\right)w(d)\\
+ &=\left(\frac1{12}+\frac16+\frac{17}{576}\right)K^3+O(K^2)
+ =\frac{161}{576}K^3+O(K^2).
+\end{align*}
+For the high-order range, the same block sums yield
+\begin{align*}
+ \sum_{K/2<d\le K}c_{K,d}^{\mathrm{str}}\varphi(d)
+ &\le\sum_{K/2<d\le K}\bigl((5K+3)d-5d^2\bigr)w(d)\\
+ &=\left(\frac54-\frac{35}{36}\right)K^3+O(K^2)
+ =\frac{160}{576}K^3+O(K^2).
+\end{align*}
+Combining the ranges gives the stronger elementary constant
+\begin{equation}\label{eq:elementary-degree-cost}
+ \sum_{d=1}^Kc_{K,d}^{\mathrm{str}}\varphi(d)
+ \le\frac{107}{192}K^3+O(K^2).
+\end{equation}
+The uniform bound $\log\Phi_d(p)=\varphi(d)\log p+O_p(1)$, already proved in Section~4, and $\sum_d c_{K,d}^{\mathrm{str}}=O(K^2\log K)$ now show
+\begin{equation}\label{eq:elementary-cost}
+ \log C_K^{\mathrm{str}}
+ \le\frac{107}{192}(\log p)K^3+O_p(K^2\log K)
+ \le\frac9{16}(\log p)K^3+O_p(K^2\log K).
+\end{equation}
+Here $107/192<9/16$; the last, slightly weaker bound is the convenient constant used in the second-proof record.
+
+\subsection{The second rationality contradiction}
+
+\begin{proof}[Second proof of Theorem~\ref{thm:main}]
+Set $P_K^{\mathrm{str}}=C_K^{\mathrm{str}}p^{-e_K}\Delta_K$. The local cyclotomic argument clears its denominators at primes not dividing $p$, and Proposition~\ref{prop:elementary-content} proves its integrality at primes dividing $p$. Thus $P_K^{\mathrm{str}}\in\Z[X]$, with degree at most $K$.
+
+The real estimate of Proposition~\ref{prop:analytic}, the identity $e_K=K^3/2-K/2$, and~\eqref{eq:elementary-cost} give
+\begin{equation*}
+ |P_K^{\mathrm{str}}(\xi_p)|
+ \le\exp\left\{-\frac7{144}(\log p)K^3+O_p(K^2\log K)\right\},
+ \qquad
+ \frac12+\frac19-\frac9{16}=\frac7{144}>0.
+\end{equation*}
+Proposition~\ref{prop:normality} supplies infinitely many nonzero values. If $\xi_p=a/b$ with $b>0$, the numbers $b^KP_K^{\mathrm{str}}(a/b)$ are integers and are nonzero for those infinitely many sizes. Their absolute values tend to zero because the additional term $K\log b$ is dominated by the negative cubic term. This is impossible. Therefore $\xi_p$ is irrational.
+\end{proof}
+
+Using $107/192$ directly improves the elementary decay margin to $31/576$. The $7/144$ margin is retained above to match the stated second proof. Both arguments concern exactly the normalization in~\eqref{eq:qzeta} and every integer $p\ge2$.
+
+\begin{thebibliography}{99}
+\bibitem{Apery} R.~Ap\'ery, \emph{Irrationalit\'e de $\zeta(2)$ et $\zeta(3)$}, Ast\'erisque \textbf{61} (1979), 11--13.
+\bibitem{Beukers} F.~Beukers, \emph{A note on the irrationality of $\zeta(2)$ and $\zeta(3)$}, Bull. London Math. Soc. \textbf{11} (1979), 268--272. \href{https://doi.org/10.1112/blms/11.3.268}{doi:10.1112/blms/11.3.268}.
+\bibitem{KRZ} C.~Krattenthaler, T.~Rivoal and W.~Zudilin, \emph{S\'eries hyperg\'eom\'etriques basiques, $q$-analogues des valeurs de la fonction z\^eta et s\'eries d'Eisenstein}, J. Inst. Math. Jussieu \textbf{5} (2006), 53--79. \href{https://arxiv.org/abs/math/0311033}{arXiv:math/0311033}.
+\bibitem{JM} F.~Jouhet and E.~Mosaki, \emph{Irrationalit\'e aux entiers impairs positifs d'un $q$-analogue de la fonction z\^eta de Riemann}, Int. J. Number Theory (2010). \href{https://doi.org/10.1142/S1793042110003332}{doi:10.1142/S1793042110003332}; \href{https://arxiv.org/abs/0712.1762}{arXiv:0712.1762}.
+\bibitem{Nesterenko} Yu.~V.~Nesterenko, \emph{Modular functions and transcendence questions}, Sb. Math. \textbf{187} (1996), 1319--1348.
+\bibitem{Prevost1996} M.~Pr\'evost, \emph{A new proof of the irrationality of $\zeta(2)$ and $\zeta(3)$ using Pad\'e approximants}, J. Comput. Appl. Math. \textbf{67} (1996), 219--235. \href{https://doi.org/10.1016/0377-0427(95)00019-4}{doi:10.1016/0377-0427(95)00019-4}.
+\bibitem{Prevost2019} M.~Pr\'evost, \emph{Remainder Pad\'e approximants for the Hurwitz zeta function}, Results Math. \textbf{74} (2019), article 51. \href{https://arxiv.org/abs/1709.05389}{arXiv:1709.05389}.
+\bibitem{PR2021} M.~Pr\'evost and T.~Rivoal, \emph{Diagonal convergence of the remainder Pad\'e approximants for the Hurwitz zeta function}, J. Number Theory \textbf{222} (2021), 346--361. \href{https://doi.org/10.1016/j.jnt.2020.10.019}{doi:10.1016/j.jnt.2020.10.019}.
+\bibitem{Zudilin2016} W.~Zudilin, \emph{On the irrationality of generalized $q$-logarithm}, Res. Number Theory \textbf{2} (2016), article 15. \href{https://doi.org/10.1007/s40993-016-0042-x}{doi:10.1007/s40993-016-0042-x}; \href{https://arxiv.org/abs/1601.02688}{arXiv:1601.02688}.
+\bibitem{Zudilin2017} W.~Zudilin, \emph{A determinantal approach to irrationality}, Constr. Approx. \textbf{45} (2017), 301--310. \href{https://arxiv.org/abs/1507.05697}{arXiv:1507.05697}.
+\bibitem{Uvarov} V.~B.~Uvarov, \emph{The connection between systems of polynomials that are orthogonal with respect to different distribution functions}, U.S.S.R. Comput. Math. Math. Phys. \textbf{9}, no.~6 (1969), 25--36. \href{https://doi.org/10.1016/0041-5553(69)90124-4}{doi:10.1016/0041-5553(69)90124-4}.
+\bibitem{Krattenthaler2021} C.~Krattenthaler, \emph{A determinant identity for moments of orthogonal polynomials that implies Uvarov's formula for the orthogonal polynomials of rationally related densities}, preprint (2021). \href{https://arxiv.org/abs/2103.03969}{arXiv:2103.03969}.
+\bibitem{Fauzan} A.~Fauzan, \emph{$\zeta(5)$ is irrational}, preprint, 17 September 2026. \href{https://zenodo.org/records/22826419}{Zenodo record 22826419}.
+\bibitem{Persiflage} Persiflage, \emph{zeta(5) is irrational}, historical and expository blog post, 24 September 2026. \href{https://galoisrepresentations.org/2026/09/24/zeta5-is-irrational/}{galoisrepresentations.org}.
+\bibitem{Tauraso} R.~Tauraso, \emph{A $q$-analogue of the Koecher--Leshchiner generating function of odd zeta values}, preprint (2025). \href{https://arxiv.org/abs/2511.18034}{arXiv:2511.18034}.
+\bibitem{CompanionMixed} Open Problems research project, \emph{Linear-independence extension of the $q$-zeta(3) determinant argument}, research notes, 11 October 2026, commit \texttt{b1436ad11769}. \href{https://github.com/fikreab-s/the-math-research-ledger/tree/b1436ad117691f96abc5203c14b119555dabf7d1/problems/odd-zeta/computations/qzeta_extensions_20261011}{Proofs and higher-weight notes}.
+\bibitem{CompanionRational} Open Problems research project, \emph{A rational-parameter extension of the $q$-zeta(3) determinant proof}, research manuscript, 11 October 2026. Archive and exact source fingerprint are recorded in the repository future-results inventory. \href{https://chatgpt.com/share/6acbb114-bf5c-83ea-8266-be9e1277b62c}{Shared research record}.
+\bibitem{CompanionBeta} Open Problems research project, \emph{Step-two $q$-beta determinant and mixed-functional extension}, research notes, 11 October 2026, commit \texttt{b19558937c91}. \href{https://github.com/fikreab-s/the-math-research-ledger/tree/b19558937c91876d6330c8464871e146a820c909/problems/odd-zeta/computations/alternatives_20261011}{Proof and independent audits}.
+\bibitem{ElementaryRecord} Open Problems research project, \emph{Elementary simplification of the reciprocal-integer $q$-zeta(3) proof}, shared research conversation, October 2026. \href{https://chatgpt.com/share/6acc2f33-718c-83e8-8975-83e51086d1a6}{Gaussian-binomial and two-prime-sieve proof record}.
+\end{thebibliography}
+\end{document}

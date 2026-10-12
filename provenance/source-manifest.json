@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-12",
+  "sources": [
+    {
+      "id": "main-source",
+      "filename": "q_zeta3_proof_candidate_2026-10-11.tex",
+      "source": "q_zeta3_checkpoint_2026-10-11.zip",
+      "sha256": "78082f1dce9e37ef710e5f7fbc20423cbdb5633f6f0c69b3affc7cf225c21b5f"
+    },
+    {
+      "id": "rational-extension",
+      "filename": "proof.tex",
+      "source": "q_zeta_rational_parameter_checkpoint_2026-10-11.zip:work/rational_q3/proof.tex",
+      "sha256": "e76f9cf4c076eb7e3cb2e0dfd043df6bc278f714c4165cb8a39dfef7efa3a172"
+    },
+    {
+      "id": "mixed-extension",
+      "filename": "LINEAR_INDEPENDENCE_EXTENSION.md",
+      "source": "github:fikreab-s/the-math-research-ledger@b1436ad117691f96abc5203c14b119555dabf7d1",
+      "sha256": "7f937410bcb912afe48c1a6cb6a69b415261e3e73223f1d85b5dcb8e3135bba0"
+    },
+    {
+      "id": "beta-pure",
+      "filename": "PROOF_CANDIDATE.md",
+      "source": "github:fikreab-s/the-math-research-ledger@b19558937c91876d6330c8464871e146a820c909",
+      "sha256": "ea0b193954e83afa6f715eb4296df29397d28b3dced4e73dd120343129dcd588"
+    },
+    {
+      "id": "beta-mixed",
+      "filename": "MIXTURE_EXTENSION.md",
+      "source": "github:fikreab-s/the-math-research-ledger@b19558937c91876d6330c8464871e146a820c909",
+      "sha256": "a1801b65806c8f6b20725fba32df62e3f427877336f9c64266218eb82ca5928f"
+    },
+    {
+      "id": "claude-audit-mirror",
+      "filename": "Untitled (1).md",
+      "source": "User-supplied audit export; original Claude share could not be fetched",
+      "sha256": "ab4081568f08d9f16450f26aca453f8c4a053bc2bb4c6f7dd8ff5109400addbb"
+    },
+    {
+      "id": "lean-original",
+      "filename": "QZeta3-lean.zip",
+      "source": "QZeta3-lean.zip",
+      "sha256": "da46b90b354e4f53201a599ecd25221a44961f00618ff7599d6480ad8269ffc0"
+    }
+  ],
+  "paper_skill_revision": "e2f73a884ae32487d02dfd10ce8619121daf95d6"
+}

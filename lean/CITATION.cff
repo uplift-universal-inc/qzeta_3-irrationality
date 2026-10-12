@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this formalisation, please cite it as below."
+title: "QZeta3: Lean 4 formalisation of the irrationality of zeta_{1/p}(3) (moving-denominator Hankel argument)"
+type: software
+authors:
+  - family-names: "Solomon Admasu"
+    given-names: "Fikreab"
+license: Apache-2.0
+date-released: "2026-10-11"
+version: "0.1.0"

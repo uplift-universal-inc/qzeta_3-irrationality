@@ -1,0 +1,11 @@
+{
+  "status": "all finite checks passed",
+  "scope": "Finite consistency evidence, not a substitute for the all-size written proofs.",
+  "exact_determinants": 88,
+  "cluster_weight_checks": 62500,
+  "denominator_constant": 0.6095102453484382,
+  "positive_margin": 0.0016008657626729317,
+  "stronger_denominator_constant": 0.5081890617061005,
+  "stronger_positive_margin": 0.10292204940501071,
+  "rational_positive_margin_using_pi_gt_157_over_50": "3487/3549456"
+}

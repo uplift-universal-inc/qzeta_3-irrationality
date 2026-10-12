@@ -1,0 +1,74 @@
+⚠ [3005/3332] Replayed QZeta3.Purity
+warning: QZeta3/Purity.lean:185:12: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3018/3332] Replayed QZeta3.Analytic
+warning: QZeta3/Analytic.lean:46:42: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3022/3332] Replayed QZeta3.ContentTruncation
+warning: QZeta3/ContentTruncation.lean:336:47: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3029/3332] Replayed QZeta3.GenericSpecialization
+warning: QZeta3/GenericSpecialization.lean:118:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: QZeta3/GenericSpecialization.lean:119:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3039/3332] Replayed QZeta3.ClusterBasis
+warning: QZeta3/ClusterBasis.lean:91:10: This simp argument is unused:
+  clusterFactor
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3041/3332] Replayed QZeta3.MovingProper
+warning: QZeta3/MovingProper.lean:12:0: automatically included section variable(s) unused in theorem `QZeta3.Generic.movingClusterPoly_eval_zero`:
+  [CharZero 𝕜]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero 𝕜] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: QZeta3/MovingProper.lean:25:0: automatically included section variable(s) unused in theorem `QZeta3.Generic.movingClusterPoly_eval_div_mem`:
+  [CharZero 𝕜]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero 𝕜] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3044/3332] Replayed QZeta3.ClusterCounts
+warning: QZeta3/ClusterCounts.lean:152:47: Variable name `hd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3049/3332] Replayed QZeta3.HighOrderLocal
+warning: QZeta3/HighOrderLocal.lean:60:0: automatically included section variable(s) unused in theorem `QZeta3.Generic.shifted_cluster_eval_upper`:
+  [CharZero 𝕜]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero 𝕜] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3051/3332] Replayed QZeta3.HighProperEntries
+warning: QZeta3/HighProperEntries.lean:12:0: automatically included section variable(s) unused in theorem `QZeta3.Generic.S_mem_regularAt_before_order`:
+  [CharZero 𝕜]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero 𝕜] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: QZeta3/HighProperEntries.lean:24:0: automatically included section variable(s) unused in theorem `QZeta3.Generic.shiftedCluster_eval_zero`:
+  [CharZero 𝕜]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero 𝕜] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: QZeta3/HighProperEntries.lean:70:10: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+Build completed successfully (3388 jobs).

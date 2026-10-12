@@ -1,0 +1,584 @@
+{
+  "status": "passed",
+  "cases": 96,
+  "bound_constant": 0.5081890617061005,
+  "margin_11_over_18": 0.10292204940501071,
+  "rows": [
+    {
+      "p": 2,
+      "K": 1,
+      "denominator_bits": 1,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 2,
+      "denominator_bits": 5,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 3,
+      "denominator_bits": 20,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 4,
+      "denominator_bits": 41,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 5,
+      "denominator_bits": 84,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 6,
+      "denominator_bits": 136,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 7,
+      "denominator_bits": 221,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 8,
+      "denominator_bits": 318,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 9,
+      "denominator_bits": 441,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 10,
+      "denominator_bits": 580,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 11,
+      "denominator_bits": 762,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 12,
+      "denominator_bits": 962,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 13,
+      "denominator_bits": 1219,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 14,
+      "denominator_bits": 1502,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 15,
+      "denominator_bits": 1821,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 16,
+      "denominator_bits": 2172,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 17,
+      "denominator_bits": 2589,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 18,
+      "denominator_bits": 3045,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 19,
+      "denominator_bits": 3582,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 20,
+      "denominator_bits": 4161,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 21,
+      "denominator_bits": 4794,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 22,
+      "denominator_bits": 5460,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 23,
+      "denominator_bits": 6213,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 2,
+      "K": 24,
+      "denominator_bits": 7012,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 1,
+      "denominator_bits": 2,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 2,
+      "denominator_bits": 10,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 3,
+      "denominator_bits": 33,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 4,
+      "denominator_bits": 66,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 5,
+      "denominator_bits": 130,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 6,
+      "denominator_bits": 205,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 7,
+      "denominator_bits": 321,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 8,
+      "denominator_bits": 464,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 9,
+      "denominator_bits": 651,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 10,
+      "denominator_bits": 863,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 11,
+      "denominator_bits": 1140,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 12,
+      "denominator_bits": 1452,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 13,
+      "denominator_bits": 1846,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 14,
+      "denominator_bits": 2282,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 15,
+      "denominator_bits": 2777,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 16,
+      "denominator_bits": 3324,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 17,
+      "denominator_bits": 3975,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 18,
+      "denominator_bits": 4680,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 19,
+      "denominator_bits": 5507,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 20,
+      "denominator_bits": 6405,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 21,
+      "denominator_bits": 7390,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 22,
+      "denominator_bits": 8434,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 23,
+      "denominator_bits": 9617,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 3,
+      "K": 24,
+      "denominator_bits": 10877,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 1,
+      "denominator_bits": 5,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 2,
+      "denominator_bits": 14,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 3,
+      "denominator_bits": 44,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 4,
+      "denominator_bits": 88,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 5,
+      "denominator_bits": 164,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 6,
+      "denominator_bits": 254,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 7,
+      "denominator_bits": 396,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 8,
+      "denominator_bits": 574,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 9,
+      "denominator_bits": 810,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 10,
+      "denominator_bits": 1079,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 11,
+      "denominator_bits": 1428,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 12,
+      "denominator_bits": 1816,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 13,
+      "denominator_bits": 2306,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 14,
+      "denominator_bits": 2847,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 15,
+      "denominator_bits": 3466,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 16,
+      "denominator_bits": 4153,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 17,
+      "denominator_bits": 4966,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 18,
+      "denominator_bits": 5845,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 19,
+      "denominator_bits": 6885,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 20,
+      "denominator_bits": 8013,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 21,
+      "denominator_bits": 9249,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 22,
+      "denominator_bits": 10562,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 23,
+      "denominator_bits": 12051,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 4,
+      "K": 24,
+      "denominator_bits": 13642,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 1,
+      "denominator_bits": 6,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 2,
+      "denominator_bits": 18,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 3,
+      "denominator_bits": 49,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 4,
+      "denominator_bits": 95,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 5,
+      "denominator_bits": 182,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 6,
+      "denominator_bits": 289,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 7,
+      "denominator_bits": 459,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 8,
+      "denominator_bits": 662,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 9,
+      "denominator_bits": 928,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 10,
+      "denominator_bits": 1234,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 11,
+      "denominator_bits": 1634,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 12,
+      "denominator_bits": 2081,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 13,
+      "denominator_bits": 2649,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 14,
+      "denominator_bits": 3281,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 15,
+      "denominator_bits": 4000,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 16,
+      "denominator_bits": 4796,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 17,
+      "denominator_bits": 5744,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 18,
+      "denominator_bits": 6775,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 19,
+      "denominator_bits": 7984,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 20,
+      "denominator_bits": 9293,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 21,
+      "denominator_bits": 10732,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 22,
+      "denominator_bits": 12262,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 23,
+      "denominator_bits": 13997,
+      "denominator_bound_divisible": true
+    },
+    {
+      "p": 5,
+      "K": 24,
+      "denominator_bits": 15840,
+      "denominator_bound_divisible": true
+    }
+  ]
+}

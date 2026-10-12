@@ -1,0 +1,10 @@
+{
+  "kind": "static_source_inventory",
+  "production_scope": "lean/QZeta3/**/*.lean",
+  "placeholder_count": 0,
+  "custom_axiom_count": 0,
+  "findings": [],
+  "formal_completeness": "requires fresh kernel dependency audit",
+  "kernel_build_replayed": false,
+  "note": "A source scan cannot certify theorem dependencies. Run the pinned Lean axiom audit after a successful build."
+}

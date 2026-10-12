@@ -1,0 +1,63 @@
+# Checks, with leanprover/comparator, that `QZeta3Audit/Solution.lean` proves exactly the
+# Mathlib-only statement of `QZeta3Audit/Challenge.lean` using only propext, Quot.sound and
+# Classical.choice. Challenge and Solution are separate environments and must not
+# be imported together. This optional CI configuration does not certify that the
+# Comparator binary has been run in the local proof-completion environment.
+name: Comparator
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  comparator:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: leanprover/comparator
+          ref: 777e7f56119efc0fac34003db4efe831e0b53723
+          path: .ci/comparator
+
+      - uses: actions/checkout@v4
+        with:
+          repository: Zouuup/landrun
+          ref: 811cfff51ceaf3d9843708aa6d22e9b84ccac8b4
+          path: .ci/landrun
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+
+      - name: Build Landrun
+        working-directory: .ci/landrun
+        run: go build -o landrun cmd/landrun/main.go
+
+      - name: Set up Lean, fetch the Mathlib cache and build the audit surface
+        uses: leanprover/lean-action@v1
+        with:
+          use-mathlib-cache: true
+          build-args: QZeta3Audit.Challenge QZeta3Audit.Solution
+
+      - name: Build Comparator
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: .ci/comparator
+          auto-config: false
+          build: true
+          build-args: lean4export comparator
+          use-mathlib-cache: false
+
+      - name: Run Comparator
+        env:
+          COMPARATOR_LANDRUN: ${{ github.workspace }}/.ci/landrun/landrun
+          COMPARATOR_LEAN4EXPORT: ${{ github.workspace }}/.ci/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export
+        run: >-
+          lake env .ci/comparator/.lake/build/bin/comparator QZeta3Audit/comparator.json

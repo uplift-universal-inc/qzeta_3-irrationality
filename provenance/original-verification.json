@@ -1,0 +1,880 @@
+{
+  "status": "Complete internally audited proof candidate; not formally verified or externally reviewed.",
+  "scope": "Finite consistency evidence, not a substitute for the all-size written proofs.",
+  "exact_determinants": 88,
+  "cluster_weight_checks": 62500,
+  "denominator_constant": 0.6095102453484382,
+  "positive_margin": 0.0016008657626729317,
+  "stronger_denominator_constant": 0.5081890617061005,
+  "stronger_positive_margin": 0.10292204940501071,
+  "rational_positive_margin_using_pi_gt_157_over_50": "3487/3549456",
+  "checks": [
+    {
+      "p": 2,
+      "K": 1,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 1
+    },
+    {
+      "p": 2,
+      "K": 2,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 2
+    },
+    {
+      "p": 2,
+      "K": 3,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 3
+    },
+    {
+      "p": 2,
+      "K": 4,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 4
+    },
+    {
+      "p": 2,
+      "K": 5,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 5
+    },
+    {
+      "p": 2,
+      "K": 6,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 6
+    },
+    {
+      "p": 2,
+      "K": 7,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 7
+    },
+    {
+      "p": 2,
+      "K": 8,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 8
+    },
+    {
+      "p": 2,
+      "K": 9,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 9
+    },
+    {
+      "p": 2,
+      "K": 10,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 10
+    },
+    {
+      "p": 2,
+      "K": 11,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 11
+    },
+    {
+      "p": 2,
+      "K": 12,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 12
+    },
+    {
+      "p": 2,
+      "K": 13,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 13
+    },
+    {
+      "p": 2,
+      "K": 14,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 14
+    },
+    {
+      "p": 2,
+      "K": 15,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 15
+    },
+    {
+      "p": 2,
+      "K": 16,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 16
+    },
+    {
+      "p": 2,
+      "K": 17,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 17
+    },
+    {
+      "p": 2,
+      "K": 18,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 18
+    },
+    {
+      "p": 2,
+      "K": 19,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 19
+    },
+    {
+      "p": 2,
+      "K": 20,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 20
+    },
+    {
+      "p": 2,
+      "K": 21,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 21
+    },
+    {
+      "p": 2,
+      "K": 22,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 22
+    },
+    {
+      "p": 2,
+      "K": 23,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 23
+    },
+    {
+      "p": 2,
+      "K": 24,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 24
+    },
+    {
+      "p": 2,
+      "K": 25,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 25
+    },
+    {
+      "p": 2,
+      "K": 26,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 26
+    },
+    {
+      "p": 2,
+      "K": 27,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 27
+    },
+    {
+      "p": 2,
+      "K": 28,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 28
+    },
+    {
+      "p": 2,
+      "K": 29,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 29
+    },
+    {
+      "p": 2,
+      "K": 30,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 30
+    },
+    {
+      "p": 3,
+      "K": 1,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 1
+    },
+    {
+      "p": 3,
+      "K": 2,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 2
+    },
+    {
+      "p": 3,
+      "K": 3,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 3
+    },
+    {
+      "p": 3,
+      "K": 4,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 4
+    },
+    {
+      "p": 3,
+      "K": 5,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 5
+    },
+    {
+      "p": 3,
+      "K": 6,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 6
+    },
+    {
+      "p": 3,
+      "K": 7,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 7
+    },
+    {
+      "p": 3,
+      "K": 8,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 8
+    },
+    {
+      "p": 3,
+      "K": 9,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 9
+    },
+    {
+      "p": 3,
+      "K": 10,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 10
+    },
+    {
+      "p": 3,
+      "K": 11,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 11
+    },
+    {
+      "p": 3,
+      "K": 12,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 12
+    },
+    {
+      "p": 3,
+      "K": 13,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 13
+    },
+    {
+      "p": 3,
+      "K": 14,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 14
+    },
+    {
+      "p": 3,
+      "K": 15,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 15
+    },
+    {
+      "p": 3,
+      "K": 16,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 16
+    },
+    {
+      "p": 4,
+      "K": 1,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 1
+    },
+    {
+      "p": 4,
+      "K": 2,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 2
+    },
+    {
+      "p": 4,
+      "K": 3,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 3
+    },
+    {
+      "p": 4,
+      "K": 4,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 4
+    },
+    {
+      "p": 4,
+      "K": 5,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 5
+    },
+    {
+      "p": 4,
+      "K": 6,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 6
+    },
+    {
+      "p": 4,
+      "K": 7,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 7
+    },
+    {
+      "p": 4,
+      "K": 8,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 8
+    },
+    {
+      "p": 4,
+      "K": 9,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 9
+    },
+    {
+      "p": 4,
+      "K": 10,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 10
+    },
+    {
+      "p": 4,
+      "K": 11,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 11
+    },
+    {
+      "p": 4,
+      "K": 12,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 12
+    },
+    {
+      "p": 5,
+      "K": 1,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 1
+    },
+    {
+      "p": 5,
+      "K": 2,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 2
+    },
+    {
+      "p": 5,
+      "K": 3,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 3
+    },
+    {
+      "p": 5,
+      "K": 4,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 4
+    },
+    {
+      "p": 5,
+      "K": 5,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 5
+    },
+    {
+      "p": 5,
+      "K": 6,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 6
+    },
+    {
+      "p": 5,
+      "K": 7,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 7
+    },
+    {
+      "p": 5,
+      "K": 8,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 8
+    },
+    {
+      "p": 5,
+      "K": 9,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 9
+    },
+    {
+      "p": 5,
+      "K": 10,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 10
+    },
+    {
+      "p": 5,
+      "K": 11,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 11
+    },
+    {
+      "p": 5,
+      "K": 12,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 12
+    },
+    {
+      "p": 6,
+      "K": 1,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 1
+    },
+    {
+      "p": 6,
+      "K": 2,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 2
+    },
+    {
+      "p": 6,
+      "K": 3,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 3
+    },
+    {
+      "p": 6,
+      "K": 4,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 4
+    },
+    {
+      "p": 6,
+      "K": 5,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 5
+    },
+    {
+      "p": 6,
+      "K": 6,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 6
+    },
+    {
+      "p": 6,
+      "K": 7,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 7
+    },
+    {
+      "p": 6,
+      "K": 8,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 8
+    },
+    {
+      "p": 6,
+      "K": 9,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 9
+    },
+    {
+      "p": 6,
+      "K": 10,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 10
+    },
+    {
+      "p": 9,
+      "K": 1,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 1
+    },
+    {
+      "p": 9,
+      "K": 2,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 2
+    },
+    {
+      "p": 9,
+      "K": 3,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 3
+    },
+    {
+      "p": 9,
+      "K": 4,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 4
+    },
+    {
+      "p": 9,
+      "K": 5,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 5
+    },
+    {
+      "p": 9,
+      "K": 6,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 6
+    },
+    {
+      "p": 9,
+      "K": 7,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 7
+    },
+    {
+      "p": 9,
+      "K": 8,
+      "denominator_divides_bound": true,
+      "stronger_denominator_divides_bound": true,
+      "content_exact": true,
+      "integral_normalized_polynomial": true,
+      "degree": 8
+    }
+  ],
+  "date": "2026-10-11",
+  "claim": "For every integer p>=2, sum_{n>=1} n^2/(p^n-1) is irrational.",
+  "independent_arithmetic_determinants": 100,
+  "larger_interval_certificate": {
+    "s": 3,
+    "p": 2,
+    "K": 60,
+    "degree": 60,
+    "primitive": true,
+    "original_normalization_correct": true,
+    "nonzero_certified": true,
+    "sign": -1,
+    "precision_bits": 266276,
+    "series_terms": 266468,
+    "tail_bound": "[2.60651588549028885e-80199 +/- 3.15e-80217]",
+    "zeta_enclosure": "[7.09928517889090711403313 +/- 4.98e-24]",
+    "value_enclosure": "[-4.34518351412299664323688e-8968 +/- 4.45e-8992]",
+    "logabs": -20648.114045977076,
+    "logabs_per_K3": -0.0955931205832272,
+    "log_den_per_K3": 0.33342757857159583,
+    "log_content_per_K3": 0.3464773198382282,
+    "content_v2": 107970,
+    "seconds": 14.902612447738647
+  },
+  "proof_inputs": [
+    "work/analytic/ANALYTIC_BOUND.md",
+    "work/valuation/PROOF.md",
+    "work/normality.md",
+    "work/denominator_independent/PROOF.md",
+    "work/denominators/PROOF.md"
+  ],
+  "internal_audits": [
+    "work/fresh_audit/ANALYTIC_NORMALITY.md",
+    "work/fresh_arithmetic/AUDIT.md",
+    "work/fresh_arithmetic/ASSEMBLY_AUDIT.md"
+  ],
+  "source_urls": [
+    "https://arxiv.org/abs/0712.1762",
+    "https://doi.org/10.1007/s40993-016-0042-x"
+  ],
+  "sha256": {
+    "README.txt": "df14d17640a232fe07651c3ab0d339c52e8ff52e9ca19d5a4dfa7a0f274c7a40",
+    "q_zeta3_proof_candidate_2026-10-11.pdf": "062dfa383574c4b2970c7040fd9ba7402d7e9c38264439aa70ed6222dbfbd204",
+    "q_zeta3_proof_candidate_2026-10-11.tex": "78082f1dce9e37ef710e5f7fbc20423cbdb5633f6f0c69b3affc7cf225c21b5f",
+    "source/zeta7-port/qhankel.py": "b74d983ce6142b9be95dd82b9f21ff6ba755cfd4d9b323655fc1b4d6011b1340",
+    "work/README_checkpoint.txt": "df14d17640a232fe07651c3ab0d339c52e8ff52e9ca19d5a4dfa7a0f274c7a40",
+    "work/analytic/ANALYTIC_BOUND.md": "85fb52d0125ec6c4562b0bb08081a3f4a6baf680530aeb6681933a97dc5c648a",
+    "work/analytic/INDEPENDENT_REVIEWS.md": "25cc78f4c1bfa730257c31e1eab6f72fb38c4fe6fb1aab0f864f4488892c5f63",
+    "work/assembly_verification.json": "2352f197da1fdd0c7b083520d97b3f96507df80f12dd40a1e986890a9502f076",
+    "work/audit/AUDIT.md": "d2e9d7720dc2635b5513d104639b67d0fbf20ccae5d573bab2ebb7c8615e8a7a",
+    "work/audit/audit_qhankel.py": "ed3ac0fd5fba7d3a875f34997140b1c171412dfc4f21dae08601205a444fdd15",
+    "work/audit/counterexamples.json": "f4deae167ea72cd25792501081561bb99dcc35a76a89c73b0c9e60f08f904ee1",
+    "work/audit/fast_K60.json": "3f5dc23fc9ec3632db6916405453e543401d6b2f0b23fff4d031569aa39898d7",
+    "work/audit/fast_verify.py": "68152ebb103f22b5d04e9e095b4927354d02f6a4e028834553a1be56ec9a2e52",
+    "work/audit/results.jsonl": "7a8fae44b1d94c9b2f5b40ec9d934a4f183552c7832561153515183367a48bfb",
+    "work/audit/sign_scan.jsonl": "d5a1b26be99979706cdcfd02ac007cc57e192ee5f85ded463b12646acd221e8c",
+    "work/denominator_independent/PROOF.md": "dcc1c3448c173ecbaa463339f0ba48e2cda69b85c85c6385ee9c2f7b0df8d121",
+    "work/denominator_repair/PROOF.md": "c689a338fba415b982d202b0d0260daf61ba0231b251c5ddf1517e0297dd9220",
+    "work/denominator_repair/verification.json": "e2d3202de189e07a70e2e9dacb9efc6321260891cc52ae3886e76c7d70e38ec7",
+    "work/denominator_repair/verify.py": "e34d1ae59dbd3ca0c1f8b313b1cc453304d82c48b3c7dd646ba0b804add64d22",
+    "work/denominators/PROOF.md": "67975e86e2b6aa94aeae0574df9d7081a080a739e08b0300c0c7ff9241103cc3",
+    "work/denominators/verification.json": "1099192732c592f56c8aa2fa3ad3049f70c0255df01aa84655e63489fcb0ce4e",
+    "work/denominators/verify_denominators.py": "4b08e5e290cc414cd8df911efa02c3c4fed53fa7526f272239820ead3ea7f4b0",
+    "work/fresh_arithmetic/ASSEMBLY_AUDIT.md": "076af7305b252b007180cada1dac784911bd55dc5ab5ef2380d128c5041b38d2",
+    "work/fresh_arithmetic/AUDIT.md": "84eefa4a53ebf00083a226888d18e5e8e97404f2d09e8d25a5330471964fb280",
+    "work/fresh_arithmetic/check.py": "3b3d519cb241ad5858c75d64b35caefae0502188b33489cd487745f187381e63",
+    "work/fresh_arithmetic/checks.json": "b6dc5f193b75717b5f8d515639bbde57a4ecabea7e5171b16aec08d9e73fa49c",
+    "work/fresh_audit/ANALYTIC_NORMALITY.md": "e47594ac928fb4dbf5f087f88f6ec1f16d48417e7310d467060208e1edce5f3f",
+    "work/normality.md": "455ae3804bf4960085e0d4b92ad72d1f7f00f0c9d9f853b6dd3257710f2f94c0",
+    "work/package_checkpoint.py": "741700bf6f33e0b487d9b73971a2dc76f721caaf3add2f21357a1d19c84b4c3e",
+    "work/valuation/PROOF.md": "a1654f2db877ed8cc7109e36e7019a334296c3a9d87b4688a1f88a30e6e1015a",
+    "work/valuation/verification.json": "41f660dc9beb03bedec6276ece8ea90f1bb0043377530a4f2210b9052240abaa",
+    "work/valuation/verify.py": "2be95d28ff51cf74e218db498028b7117c9bc9780281acfc445aaf2c58b4db10",
+    "work/verify_assembly.py": "1d07088818d8c732c9c849c4df1aec89dbae1103b400cbcab884c0ac1e47ee43"
+  }
+}

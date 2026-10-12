@@ -1,0 +1,225 @@
+{
+  "review_date": "2026-10-11",
+  "review_type": "bounded written source and theorem-contract review",
+  "finite_computations_rerun": false,
+  "canonical_manuscript_modified": false,
+  "items": [
+    {
+      "id": "R1",
+      "title": "Rational weight-three irrationality",
+      "parameter_range": "coprime a,b positive; a<b; a/b<=1/2; log(a)/log(b)<1-2889/(352*pi^2)",
+      "status": "Written complete proposed proof; no substantive gap identified in bounded review",
+      "sources": [
+        "archive://q_zeta_rational_parameter_checkpoint_2026-10-11/work/rational_q3/proof.tex",
+        "archive://q_zeta_rational_parameter_checkpoint_2026-10-11/work/rational_q3/AUDIT.txt"
+      ],
+      "scope_note": "Includes b>a^6 and 2/65; does not include all rational q or q=2/3.",
+      "complete_lean_claim": false,
+      "external_validation_claim": false
+    },
+    {
+      "id": "R2",
+      "title": "Inverse-parameter polynomial degree",
+      "parameter_range": "all integers K>=1",
+      "status": "Written all-order lemma",
+      "sources": [
+        "archive://q_zeta_rational_parameter_checkpoint_2026-10-11/work/rational_q3/proof.tex"
+      ],
+      "scope_note": "A_K=C_K*t^(-e_K)*Delta_K in Z[t,X]; deg_t<=deg C_K and deg_X=K; fixed-K limit is not a uniform K estimate.",
+      "complete_lean_claim": false,
+      "external_validation_claim": false
+    },
+    {
+      "id": "G1",
+      "title": "All-weight real decay and real-target infinite nonvanishing",
+      "parameter_range": "fixed integer s>=2; integer p>=2; q=1/p",
+      "status": "Written all-order proof",
+      "sources": [
+        "archive://q_zeta_general_weight_checkpoint_2026-10-11/work/general_weight/analytic.md",
+        "archive://q_zeta_general_weight_checkpoint_2026-10-11/work/general_weight/extension_report.tex"
+      ],
+      "scope_note": "log|Delta|<=-log(p)*K^3/(3s)+O(K^2); this alone does not prove irrationality.",
+      "complete_lean_claim": false,
+      "external_validation_claim": false
+    },
+    {
+      "id": "G2",
+      "title": "Exact square-family p-content and local infinite nonvanishing",
+      "parameter_range": "s>=2,p>=2,K>=1 integers; every prime ell dividing p; every fixed X in Q_ell",
+      "status": "Written all-order proof",
+      "sources": [
+        "archive://q_zeta_general_weight_checkpoint_2026-10-11/work/general_weight/arithmetic/PROOF.md"
+      ],
+      "scope_note": "Exact p^e_K content; mixed parity signs required; naive s=1 extension is false.",
+      "complete_lean_claim": false,
+      "external_validation_claim": false
+    },
+    {
+      "id": "G4",
+      "title": "Sharper general-weight denominator certificate",
+      "parameter_range": "fixed integer s>=2; square H=K; integer p>=2",
+      "status": "Written upper-bound theorem and certificate comparison",
+      "sources": [
+        "archive://q_zeta_general_weight_checkpoint_2026-10-11/work/general_weight/independent_denominators.md"
+      ],
+      "scope_note": "C_s=(s+7/4+sum_{j>=1}(s+2j)^(-2))/pi^2; fits 1/2+1/(3s) only for s=2,3. Failure is not a true-denominator lower bound.",
+      "complete_lean_claim": false,
+      "external_validation_claim": false
+    },
+    {
+      "id": "G5",
+      "title": "Varying-numerator content and local normality",
+      "parameter_range": "s,p>=2 integers; arbitrary H,K for floor; H=K and w_0=1,w_j divisible by p^j for varying-numerator nonvanishing",
+      "status": "Written all-order proof",
+      "sources": [
+        "archive://q_zeta_general_weight_checkpoint_2026-10-11/work/general_weight/arithmetic/NUMERATOR_CONTENT_NONVANISHING.md"
+      ],
+      "scope_note": "Nonzero subsequence uniform over numerator N(K); requires the stated coefficient divisibility.",
+      "complete_lean_claim": false,
+      "external_validation_claim": false
+    },
+    {
+      "id": "G7",
+      "title": "Short-denominator certificate misses higher-weight budget",
+      "parameter_range": "s>=5; H=floor(alpha*K), 0<alpha<=1; unweighted determinant",
+      "status": "Written certificate-level barrier",
+      "sources": [
+        "archive://q_zeta_general_weight_checkpoint_2026-10-11/work/general_weight/parameters/REPORT.md"
+      ],
+      "scope_note": "Not a universal impossibility theorem; early-node numerators change moment range.",
+      "complete_lean_claim": false,
+      "external_validation_claim": false
+    },
+    {
+      "id": "O1",
+      "title": "Positive tail determinant positivity and sharp analytic exponent",
+      "parameter_range": "fixed integer s>=2,p>=2; every K>=1",
+      "status": "Written all-order proof",
+      "sources": [
+        "archive://q_zeta_odd_alternatives_checkpoint_2026-10-11/work/odd_alternatives/loewner/REPORT.md",
+        "archive://q_zeta_odd_alternatives_checkpoint_2026-10-11/work/odd_alternatives/research_report.tex"
+      ],
+      "scope_note": "Affine in target; positive every K; cubic decay 1/3; available denominator arithmetic fails.",
+      "complete_lean_claim": false,
+      "external_validation_claim": false
+    },
+    {
+      "id": "O2",
+      "title": "Formal complete-block exact leading order",
+      "parameter_range": "integer s>=2; K=sM; finite H>=0",
+      "status": "Written formal asymptotic theorem",
+      "sources": [
+        "archive://q_zeta_odd_alternatives_checkpoint_2026-10-11/work/odd_alternatives/analytic/SHARPNESS_AND_ORDER.md"
+      ],
+      "scope_note": "Coefficient (-1)^(M*s*(s-1)/2)*((s-1)!)^(s*M); no fixed-p=2 asymptotic follows from formal order alone.",
+      "complete_lean_claim": false,
+      "external_validation_claim": false
+    },
+    {
+      "id": "O3",
+      "title": "Uniform sufficiently-small-q complete-block exact cubic rate",
+      "parameter_range": "integer s>=2; some q_s>0; all 0<q<=q_s; K=sM; arbitrary finite H>=0",
+      "status": "Written uniform analytic theorem with internal audit",
+      "sources": [
+        "archive://q_zeta_odd_alternatives_checkpoint_2026-10-11/work/odd_alternatives/analytic/FIXED_SMALL_Q.md",
+        "archive://q_zeta_odd_alternatives_checkpoint_2026-10-11/work/odd_alternatives/literature/FIXED_SMALL_Q_AUDIT.md"
+      ],
+      "scope_note": "Constants independent of K,H; threshold not shown to reach q=1/2; does not control arithmetic cancellation.",
+      "complete_lean_claim": false,
+      "external_validation_claim": false
+    },
+    {
+      "id": "O4",
+      "title": "Fixed rational filters and finite dilations growth obstruction",
+      "parameter_range": "integer s>=2; finite nonempty dilation set; nonzero rational-function coefficients; analytic at zero",
+      "status": "Written barrier theorem",
+      "sources": [
+        "archive://q_zeta_odd_alternatives_checkpoint_2026-10-11/work/odd_alternatives/root_pade/FILTER_DILATION_BARRIER.md"
+      ],
+      "scope_note": "Rules out sum_{n<=N}|c_n|=O(N(log N)^nu) for each fixed nu>=0; does not rule out growing filters.",
+      "complete_lean_claim": false,
+      "external_validation_claim": false
+    },
+    {
+      "id": "O5",
+      "title": "CRT numerator zero-or-large dichotomy",
+      "parameter_range": "integral V(z,x), deg_x<=N, full cyclotomic congruences d<=N; integer j>=1,p>=2",
+      "status": "Written divisibility theorem",
+      "sources": [
+        "archive://q_zeta_odd_alternatives_checkpoint_2026-10-11/work/odd_alternatives/analytic/CRT_REAL_DICHOTOMY.md"
+      ],
+      "scope_note": "Symbolic condition gives product; fixed-p congruences give lcm. Neither lower-bounds signed determinants.",
+      "complete_lean_claim": false,
+      "external_validation_claim": false
+    },
+    {
+      "id": "O6",
+      "title": "Disjoint-pole Loewner primitive equivalence",
+      "parameter_range": "fixed union of 2K distinct reciprocal geometric poles; full K-dimensional bases",
+      "status": "Written equivalence theorem",
+      "sources": [
+        "archive://q_zeta_odd_alternatives_checkpoint_2026-10-11/work/odd_alternatives/loewner/REPORT.md"
+      ],
+      "scope_note": "Primitive polynomials identical up to sign; changing pole set or subspace is outside scope.",
+      "complete_lean_claim": false,
+      "external_validation_claim": false
+    },
+    {
+      "id": "O7",
+      "title": "Explicit dual purity projector restores order-s poles",
+      "parameter_range": "integer s>=2,p>=2; displayed s-shift Lagrange projector",
+      "status": "Written purity identity and pole-order theorem",
+      "sources": [
+        "archive://q_zeta_odd_alternatives_checkpoint_2026-10-11/work/odd_alternatives/arithmetic/DUAL_PURITY_PROJECTOR.md"
+      ],
+      "scope_note": "Not a universal obstruction to every mixed/block projector.",
+      "complete_lean_claim": false,
+      "external_validation_claim": false
+    },
+    {
+      "id": "O8",
+      "title": "Tall denominator additional common p-content",
+      "parameter_range": "integer p>=2; odd s>=3; H>=2K-1; K>=1",
+      "status": "Written content lower bound with internal audit",
+      "sources": [
+        "archive://q_zeta_odd_alternatives_checkpoint_2026-10-11/work/odd_alternatives/parameters/TALL_CONTENT.md",
+        "archive://q_zeta_odd_alternatives_checkpoint_2026-10-11/work/odd_alternatives/analytic/TALL_CONTENT_AUDIT.md"
+      ],
+      "scope_note": "Content at least p^(H(H+1)(K-1)/2 + sum_{i=1}^{K-1}(H-2i)ceil(i/s)); not exact content or nonvanishing.",
+      "complete_lean_claim": false,
+      "external_validation_claim": false
+    },
+    {
+      "id": "O9",
+      "title": "Tall denominator available certificate and endpoint deficit",
+      "parameter_range": "K<=H<=2K; endpoint H=2K,s=5",
+      "status": "Written denominator upper bound and comparison",
+      "sources": [
+        "archive://q_zeta_odd_alternatives_checkpoint_2026-10-11/work/odd_alternatives/parameters/TALL_BUDGET.md"
+      ],
+      "scope_note": "At H=2K,s=5 budget 32/15 < high-index certificate contribution 24/pi^2; no all-coefficient extra-content formula for 1<H/K<2.",
+      "complete_lean_claim": false,
+      "external_validation_claim": false
+    },
+    {
+      "id": "L1",
+      "title": "Two-weight rational linear independence",
+      "parameter_range": "integer p with |p|>=2; Z_s(p)=sum_{n>=1}n^(s-1)/(p^n-1)",
+      "status": "Written internally audited extension of baseline determinant lemmas; intended for later article",
+      "sources": [
+        "ledger-source://LINEAR_INDEPENDENCE_EXTENSION.md",
+        "ledger-source://AUDIT.md"
+      ],
+      "scope_note": "1,Z_2(p),Z_3(p) linearly independent over Q. Negative p pays 2^(K(K-1)). Does not add Z_1 or prove algebraic independence. Audit section 5 omits a plus sign in one display; correct sum appears in source and principal part.",
+      "complete_lean_claim": false,
+      "external_validation_claim": false
+    }
+  ],
+  "not_proved": [
+    "individual odd weights >=5 irrationality",
+    "all rational-parameter weight-three irrationality",
+    "true denominator asymptotic lower bound in unfinished Schur-complement direction",
+    "fixed q=1/2 sharp lower bound for growing K",
+    "novelty or complete Lean certification"
+  ]
+}

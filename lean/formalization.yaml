@@ -1,0 +1,174 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema.json
+version: v0.4
+project:
+  name: 'Irrationality of zeta_{1/p}(3): Lean formalisation of the moving-denominator Hankel argument'
+  description: A Lean 4 / Mathlib formalization of the moving-denominator Hankel argument for irrationality
+    of sum_{n>=1} n^2/(p^n-1), for every integer p>=2. The analytic determinant bound, coefficientwise
+    content, leading coefficient, cyclotomic denominator clearing, nonvanishing, and sufficient finite-sieve
+    growth bound prove the unchanged main target. Production proof placeholders are eliminated;
+    the full library build and transitive solution axiom audit pass for all audited declarations.
+    An elementary second proof uses Gaussian-binomial residue integrality and direct criterion assembly;
+    its dependency audit verifies the alternate arithmetic branch.
+  authors:
+  - uplift-universal-inc
+  responsible_maintainers:
+  - uplift-universal-inc
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11J72
+  - 11J82
+  - 33D15
+sources:
+- title: A moving-denominator Hankel argument for the irrationality of zeta_{1/p}(3)
+  authors:
+  - Open Problems research project (GPT-6 Astra); construction and certificates by the preceding Claude
+    session
+  id: manuscript, research proof candidate, 11 October 2026 (unpublished)
+  type: paper
+  relationship: formalizes
+  note: Unpublished research proof candidate dated 11 October 2026. The formal development records its
+    statement-to-proof correspondence in CORRESPONDENCE.md. No external peer review or independent novelty
+    verification is claimed. Appendix B and the elementary second proof are reconstructed from the
+    displayed messages at https://chatgpt.com/share/6acc2f33-718c-83e8-8975-83e51086d1a6,
+    preserved in ../provenance/elementary-second-proof-source.md. Their linked scratch Markdown attachments
+    were unavailable; their full contents were not audited.
+  license: unknown
+  author_contacted: n/a
+related_formalizations:
+- id: https://github.com/mo271/Zeta5
+  relationship: compare-with
+  note: Reference for proof-organization conventions and determinant-formalization architecture. No result
+    from that repository is imported as an axiom.
+- id: https://github.com/google-deepmind/formal-conjectures
+  relationship: compare-with
+  note: Statement conventions of the comparator challenge follow this repository.
+status:
+  scope: 'Completed formal proof: every QZeta3 production-library proof placeholder is replaced by a proof
+    or sufficient proved substitute, including denominators_clear. The full library and explicit-series
+    solution build successfully; all audited declarations use only the standard axioms listed below.
+    Records: ../certificates/formal-proof-run.log and ../certificates/kernel-axioms.log. The independent
+    Mathlib-only comparator challenge retains one intentional statement-template placeholder, excluded
+    from the solution dependency graph. The Gaussian elementary second proof also passes the build,
+    axiom audit, and declaration-dependency check recorded in ../certificates/second-proof-dependencies.log.
+    A separate external comparator service run is not claimed.'
+  sorry_count: 0
+  sorry_count_scope: Actual source proof placeholders in QZeta3 production library; excludes comments and
+    the separate comparator challenge template. Full library and solution verification passed.
+  comparator_challenge_sorry_count: 1
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+  main_results:
+  - declaration: QZeta3.theorem11
+    file: QZeta3/Frozen/Theorem11.lean
+    sorry_count: 0
+    axioms:
+    - propext
+    - Classical.choice
+    - Quot.sound
+    comparator_config: QZeta3Audit/comparator.json
+    literature_dependencies: []
+  - declaration: QZeta3.irrational_qzeta3_elementary
+    file: QZeta3/ElementarySecondProof.lean
+    sorry_count: 0
+    axioms:
+    - propext
+    - Classical.choice
+    - Quot.sound
+    literature_dependencies: []
+automation:
+  methods:
+  - method: agent
+    models:
+    - claude-fable-5-1
+    framework: Claude (Anthropic) agentic harness on Claude Code tooling
+    tool_setup: Lake build under leanprover/lean4:v4.34.1 with Mathlib v4.34.1 (commit d13f23b7), Mathlib
+      compiled from source for the ~2 700-module import closure (no cache access in the sandbox). CI (.github/workflows/build.yml)
+      builds the library and runs the sorry/axiom audit; .github/workflows/comparator.yml runs leanprover/comparator
+      on the Mathlib-only challenge.
+    cost:
+      wall_time: one session, 11 October 2026
+      spend_usd: not tracked
+      hardware: 2-CPU / 7 GB sandbox container
+    prompting_notes: Human-directed; the user asked for a formalisation of the audited manuscript following
+      current best practices. Statements were written by the model from the manuscript and have NOT yet
+      been reviewed by a human; see review.
+  - method: agent
+    models:
+    - OpenAI Codex agents (exact session model identifier not recorded here)
+    framework: ChatGPT Work with parallel agent coordination
+    tool_setup: 'Lean v4.34.1, pinned Mathlib v4.34.1, targeted Lake builds and #print axioms audits.
+      No external prover result is assumed in the proof.'
+    prompting_notes: User-directed completion of the imported formalization, preserving the actual irrationality
+      target and reporting remaining dependencies explicitly.
+  notes: The imported initial skeleton was recorded as generated by Claude on 11 October 2026. Subsequent
+    implementation used OpenAI Codex agents. The full library and explicit-series solution build and pass
+    the transitive axiom allowlist audit. All production proof placeholders have been
+    replaced by proofs or sufficient proved substitutes. A successful build with sorry warnings alone
+    would not establish completion. The independent challenge template is explicitly excluded from the
+    solution dependency graph. The elementary second proof adds finite Gaussian arithmetic and direct
+    criterion assembly. Its declaration-dependency audit requires the Gaussian branch and excludes the
+    first irrationality theorem and original coefficient-content branch.
+fidelity:
+  divergences: The factorial determinant prefactor replaces the Hadamard sqrt(K) prefactor; only the sufficient
+    lower bound on b_K is used. Appendix A exponents cApp are unchanged, but an elementary period-six
+    sieve supplies the weaker sufficient cubic cost 107/192 instead of an unconditional claim of the sharper
+    321/(64*pi^2) asymptotic. The resulting exact positive margin is 31/576. General-cost asymptotic lemmas
+    drive Main.irrational_xi; retained sharp-cost wrappers have explicit hypotheses. Arithmetic content
+    is encoded through rational denominator coprimality and finite truncations. The exact degree is proved,
+    though only the upper bound is needed. The defining sum starts at n+1. The elementary second proof
+    replaces general residue integrality by Gaussian monomial residues and finite linearity, then uses
+    the shared truncation and determinant algebra. Its source cost 9/16 is obtained by weakening the
+    stronger proved 107/192 bound, giving margin 7/144. It shares the determinant, real estimate, local
+    cyclotomic clearing, nonvanishing, and supporting algebra; it is not a determinant-free or unrelated
+    independent method. See CORRESPONDENCE.md.
+review:
+  status: unreviewed
+  reviewers: []
+  notes: No completed human statement-to-manuscript audit or external mathematical peer review is claimed.
+    Review Frozen statements, the independent comparator challenge, CORRESPONDENCE.md, and the final transitive
+    axiom report. The completed formal proof passes the full build and transitive axiom audit; this
+    establishes the formal propositions, not novelty, external acceptance, or a human statement review.
+alignment:
+  namespace: QZeta3
+  statements:
+  - source: Theorem 1.1 (candidate main theorem)
+    lean: QZeta3.theorem11
+    module: QZeta3.Frozen.Theorem11
+    status: proved; full build and transitive axiom audit passed
+  - source: Proposition 2.1 (all-size real determinant bound)
+    lean: QZeta3.analytic_bound
+    module: QZeta3.Frozen.Prop21
+    status: proved; full build and transitive axiom audit passed
+  - source: Proposition 3.1 (coefficientwise factor at primes dividing p)
+    lean: QZeta3.content_coeff, QZeta3.leading_coeff
+    module: QZeta3.Frozen.Prop31
+    status: proved; full build and transitive axiom audit passed
+  - source: Proposition 4.1 integrality / sufficient finite-sieve growth substitute
+    lean: QZeta3.denominators_clear, QZeta3.log_CK_sieve_le
+    module: QZeta3.Frozen.Prop41
+    status: proved; full build and transitive axiom audit passed
+  - source: Proposition 5.1 (infinitely many nonzero determinants)
+    lean: QZeta3.frequently_ne_zero
+    module: QZeta3.Frozen.Prop51
+    status: proved; full build and transitive axiom audit passed
+  - source: Appendix B, Lemma B.1 (Gaussian residue identity)
+    lean: QZeta3.gaussian_residue_identity, QZeta3.geometricResidue_reciprocal
+    module: QZeta3.GaussianIdentity
+    status: proved; full build and transitive axiom audit passed
+  - source: Appendix B, Proposition B.2 (Gaussian coefficient-content proof)
+    lean: QZeta3.content_coeff_elementary
+    module: QZeta3.ElementaryContent
+    status: proved; full build, axiom audit, and alternate dependency check passed
+  - source: Appendix B, elementary growth cost and second rationality contradiction
+    lean: QZeta3.log_CK_elementary_le, QZeta3.irrational_qzeta3_elementary
+    module: QZeta3.ElementarySecondProof
+    status: proved; full build, axiom audit, and alternate dependency check passed
+acknowledgements: Built on Lean 4, Mathlib and Lake. Project conventions follow mo271/Zeta5, the Formal
+  Conjectures repository, and the practices of recent AI-assisted formalisations (frozen statement files,
+  Mathlib-only comparator challenge, axioms audit, formalization.yaml).

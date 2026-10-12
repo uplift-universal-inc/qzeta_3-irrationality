@@ -1,0 +1,31 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Lean, fetch the Mathlib cache and build the library
+        uses: leanprover/lean-action@v1
+        with:
+          use-mathlib-cache: true
+          build-args: QZeta3 QZeta3Audit.Solution
+
+      - name: Complete transitive axiom audit
+        run: scripts/audit.sh | tee audit.txt
+
+      - name: Upload audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit
+          path: audit.txt

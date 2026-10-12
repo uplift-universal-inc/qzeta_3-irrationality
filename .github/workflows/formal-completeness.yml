@@ -1,0 +1,35 @@
+name: Strict formal proof completeness
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  kernel-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Reject source placeholders and custom axioms
+        run: python3 scripts/formal_status.py --strict
+      - name: Set up Lean, fetch the Mathlib cache and build the proof
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: lean
+          use-mathlib-cache: true
+          build-args: QZeta3 QZeta3Audit.Solution
+      - name: Verify every expected transitive axiom report
+        run: make formal-proof
+      - name: Upload verification records
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lean-kernel-verification
+          path: |
+            certificates/formal-status.json
+            certificates/kernel-axioms.log
+            certificates/second-proof-dependencies.log

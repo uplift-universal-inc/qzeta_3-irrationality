@@ -1,0 +1,90 @@
+python3 scripts/formal_status.py --strict
+{
+  "kind": "static_source_inventory",
+  "production_scope": "lean/QZeta3/**/*.lean",
+  "placeholder_count": 0,
+  "custom_axiom_count": 0,
+  "findings": [],
+  "formal_completeness": "requires fresh kernel dependency audit",
+  "kernel_build_replayed": false,
+  "note": "A source scan cannot certify theorem dependencies. Run the pinned Lean axiom audit after a successful build."
+}
+cd lean && lake build QZeta3 QZeta3Audit.Solution && lake env lean QZeta3/Meta/AxiomsAudit.lean > ../certificates/kernel-axioms.log
+⚠ [3001/3181] Replayed QZeta3.Purity
+warning: QZeta3/Purity.lean:185:12: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3015/3181] Replayed QZeta3.Analytic
+warning: QZeta3/Analytic.lean:46:42: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3102/3181] Replayed QZeta3.ContentTruncation
+warning: QZeta3/ContentTruncation.lean:336:47: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3111/3181] Replayed QZeta3.GenericSpecialization
+warning: QZeta3/GenericSpecialization.lean:118:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: QZeta3/GenericSpecialization.lean:119:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3121/3181] Replayed QZeta3.ClusterBasis
+warning: QZeta3/ClusterBasis.lean:91:10: This simp argument is unused:
+  clusterFactor
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3123/3181] Replayed QZeta3.MovingProper
+warning: QZeta3/MovingProper.lean:12:0: automatically included section variable(s) unused in theorem `QZeta3.Generic.movingClusterPoly_eval_zero`:
+  [CharZero 𝕜]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero 𝕜] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: QZeta3/MovingProper.lean:25:0: automatically included section variable(s) unused in theorem `QZeta3.Generic.movingClusterPoly_eval_div_mem`:
+  [CharZero 𝕜]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero 𝕜] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3126/3181] Replayed QZeta3.ClusterCounts
+warning: QZeta3/ClusterCounts.lean:152:47: Variable name `hd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3131/3181] Replayed QZeta3.HighOrderLocal
+warning: QZeta3/HighOrderLocal.lean:60:0: automatically included section variable(s) unused in theorem `QZeta3.Generic.shifted_cluster_eval_upper`:
+  [CharZero 𝕜]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero 𝕜] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3133/3181] Replayed QZeta3.HighProperEntries
+warning: QZeta3/HighProperEntries.lean:12:0: automatically included section variable(s) unused in theorem `QZeta3.Generic.S_mem_regularAt_before_order`:
+  [CharZero 𝕜]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero 𝕜] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: QZeta3/HighProperEntries.lean:24:0: automatically included section variable(s) unused in theorem `QZeta3.Generic.shiftedCluster_eval_zero`:
+  [CharZero 𝕜]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CharZero 𝕜] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: QZeta3/HighProperEntries.lean:70:10: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [3390/3391] Built QZeta3 (1.9s)
+Build completed successfully (3391 jobs).
+python3 scripts/check_axioms.py certificates/kernel-axioms.log
+Axiom allowlist passed for all 49 expected declarations in the supplied fresh log.
+cd lean && lake env lean QZeta3/Meta/SecondProofAudit.lean > ../certificates/second-proof-dependencies.log
